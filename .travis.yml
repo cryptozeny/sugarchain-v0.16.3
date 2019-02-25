@@ -52,7 +52,7 @@ env:
       NO_DEPENDS=1
       NEED_XVFB=1
       RUN_TESTS=true
-      RUN_FUNCTIONAL=true
+      RUN_FUNCTIONAL=false
       GOAL="install"
       BITCOIN_CONFIG="--enable-zmq --with-incompatible-bdb --enable-glibc-back-compat --enable-reduce-exports --with-gui=qt4 CPPFLAGS=-DDEBUG_LOCKORDER"
       CFLAGS=-I$YESPOWER_PATH
