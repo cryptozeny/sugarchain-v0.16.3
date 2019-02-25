@@ -258,7 +258,7 @@ libbitcoin_wallet_a_SOURCES = \
 # crypto primitives library
 crypto_libbitcoin_crypto_a_CPPFLAGS = $(AM_CPPFLAGS)
 crypto_libbitcoin_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-crypto_libbitcoin_crypto_a_CFLAGS = $(PIE_FLAGS) -Icrypto/yespower-1.0.0 -Wall -O2 -fomit-frame-pointer
+crypto_libbitcoin_crypto_a_CFLAGS = $(PIE_FLAGS) -Wall -O2 -fomit-frame-pointer
 crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/aes.cpp \
   crypto/aes.h \
