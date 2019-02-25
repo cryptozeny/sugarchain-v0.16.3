@@ -33,7 +33,6 @@ env:
       CHECK_DOC=1
       GOAL="install"
       BITCOIN_CONFIG="--enable-glibc-back-compat --enable-reduce-exports"
-      CFLAGS=-I$YESPOWER_PATH
 # Win32
     - >
       HOST=i686-w64-mingw32
@@ -43,7 +42,6 @@ env:
       RUN_TESTS=true
       GOAL="install"
       BITCOIN_CONFIG="--enable-reduce-exports $WIN_BITCOIN_CONFIG"
-      CFLAGS=-I$YESPOWER_PATH
 # Qt4 & system libs
     - >
       HOST=x86_64-unknown-linux-gnu
@@ -53,7 +51,6 @@ env:
       RUN_TESTS=true
       GOAL="install"
       BITCOIN_CONFIG="--enable-zmq --with-incompatible-bdb --enable-glibc-back-compat --enable-reduce-exports --with-gui=qt4 CPPFLAGS=-DDEBUG_LOCKORDER"
-      CFLAGS=-I$YESPOWER_PATH
 # 32-bit + dash
     - >
       HOST=i686-pc-linux-gnu
@@ -63,7 +60,6 @@ env:
       GOAL="install"
       BITCOIN_CONFIG="--enable-zmq --enable-glibc-back-compat --enable-reduce-exports LDFLAGS=-static-libstdc++"
       USE_SHELL="/bin/dash"
-      CFLAGS=-I$YESPOWER_PATH
 # Win64
     - >
       HOST=x86_64-w64-mingw32
@@ -73,7 +69,6 @@ env:
       RUN_TESTS=true
       GOAL="install"
       BITCOIN_CONFIG="--enable-reduce-exports $WIN_BITCOIN_CONFIG"
-      CFLAGS=-I$YESPOWER_PATH
 # x86_64 Linux (uses qt5 dev package instead of depends Qt to speed up build and avoid timeout)
     - >
       HOST=x86_64-unknown-linux-gnu
@@ -82,7 +77,6 @@ env:
       RUN_TESTS=true
       GOAL="install"
       BITCOIN_CONFIG="--enable-zmq --with-gui=qt5 --enable-glibc-back-compat --enable-reduce-exports CPPFLAGS=-DDEBUG_LOCKORDER"
-      CFLAGS=-I$YESPOWER_PATH
 # x86_64 Linux, No wallet
     - >
       HOST=x86_64-unknown-linux-gnu
@@ -91,7 +85,6 @@ env:
       RUN_TESTS=true
       GOAL="install"
       BITCOIN_CONFIG="--enable-glibc-back-compat --enable-reduce-exports"
-      CFLAGS=-I$YESPOWER_PATH
 # Cross-Mac
     - >
       HOST=x86_64-apple-darwin11
@@ -99,7 +92,6 @@ env:
       BITCOIN_CONFIG="--enable-gui --enable-reduce-exports --enable-werror"
       OSX_SDK=10.11
       GOAL="install"
-      CFLAGS="-I$YESPOWER_PATH"
 
 before_install:
     - export PATH=$(echo $PATH | tr ':' "\n" | sed '/\/opt\/python/d' | tr "\n" ":" | sed "s|::|:|g")
@@ -134,10 +126,10 @@ script:
     - if [ -z "$NO_DEPENDS" ]; then depends/$HOST/native/bin/ccache --max-size=$CCACHE_SIZE; fi
     - test -n "$USE_SHELL" && eval '"$USE_SHELL" -c "./autogen.sh"' || ./autogen.sh
     - mkdir build && cd build
-    - ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
+    - ../configure CFLAGS="-I$YESPOWER_PATH" --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
     - make distdir VERSION=$HOST
     - cd sugarchain-$HOST
-    - ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
+    - ./configure CFLAGS="-I$YESPOWER_PATH" --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
     - make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && make $GOAL V=1 ; false )
     - export LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/depends/$HOST/lib
     - if [ "$RUN_TESTS" = "true" ]; then travis_wait 30 make $MAKEJOBS check VERBOSE=1; fi
