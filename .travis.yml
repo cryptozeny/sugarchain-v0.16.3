@@ -41,7 +41,6 @@ env:
       DEP_OPTS="NO_QT=1"
       PACKAGES="python3 nsis g++-mingw-w64-i686 wine1.6"
       RUN_TESTS=true
-      RUN_FUNCTIONAL=false
       GOAL="install"
       BITCOIN_CONFIG="--enable-reduce-exports $WIN_BITCOIN_CONFIG"
       CFLAGS=-I$YESPOWER_PATH
@@ -52,7 +51,6 @@ env:
       NO_DEPENDS=1
       NEED_XVFB=1
       RUN_TESTS=true
-      RUN_FUNCTIONAL=false
       GOAL="install"
       BITCOIN_CONFIG="--enable-zmq --with-incompatible-bdb --enable-glibc-back-compat --enable-reduce-exports --with-gui=qt4 CPPFLAGS=-DDEBUG_LOCKORDER"
       CFLAGS=-I$YESPOWER_PATH
@@ -62,7 +60,6 @@ env:
       PACKAGES="g++-multilib python3-zmq"
       DEP_OPTS="NO_QT=1"
       RUN_TESTS=true
-      RUN_FUNCTIONAL=false
       GOAL="install"
       BITCOIN_CONFIG="--enable-zmq --enable-glibc-back-compat --enable-reduce-exports LDFLAGS=-static-libstdc++"
       USE_SHELL="/bin/dash"
@@ -74,7 +71,6 @@ env:
       DEP_OPTS="NO_QT=1"
       PACKAGES="python3 nsis g++-mingw-w64-x86-64 wine1.6"
       RUN_TESTS=true
-      RUN_FUNCTIONAL=false
       GOAL="install"
       BITCOIN_CONFIG="--enable-reduce-exports $WIN_BITCOIN_CONFIG"
       CFLAGS=-I$YESPOWER_PATH
@@ -84,7 +80,6 @@ env:
       PACKAGES="python3-zmq qtbase5-dev qttools5-dev-tools protobuf-compiler libdbus-1-dev libharfbuzz-dev"
       DEP_OPTS="NO_QT=1 NO_UPNP=1 DEBUG=1 ALLOW_HOST_PACKAGES=1"
       RUN_TESTS=true
-      RUN_FUNCTIONAL=false
       GOAL="install"
       BITCOIN_CONFIG="--enable-zmq --with-gui=qt5 --enable-glibc-back-compat --enable-reduce-exports CPPFLAGS=-DDEBUG_LOCKORDER"
       CFLAGS=-I$YESPOWER_PATH
@@ -94,7 +89,6 @@ env:
       PACKAGES="python3"
       DEP_OPTS="NO_WALLET=1"
       RUN_TESTS=true
-      RUN_FUNCTIONAL=false
       GOAL="install"
       BITCOIN_CONFIG="--enable-glibc-back-compat --enable-reduce-exports"
       CFLAGS=-I$YESPOWER_PATH
