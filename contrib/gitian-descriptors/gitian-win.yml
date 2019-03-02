@@ -159,7 +159,12 @@ script: |
     rename 's/-setup\.exe$/-setup-unsigned.exe/' *-setup.exe
     cp -f sugarchain-*setup*.exe $OUTDIR/
     cd installed
-    mv ${DISTNAME}/bin/*.dll ${DISTNAME}/lib/
+
+    # BEGIN - DISABLE SHARED
+    # WIN_BITCOIN_CONFIG="--disable-shared"
+    # mv ${DISTNAME}/bin/*.dll ${DISTNAME}/lib/
+    # END - DISABLE SHARED
+
     find . -name "lib*.la" -delete
     find . -name "lib*.a" -delete
     rm -rf ${DISTNAME}/lib/pkgconfig
