@@ -28,7 +28,8 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/sugarchain-project/sugarchain.git"
+# - "url": "https://github.com/sugarchain-project/sugarchain.git"
+- "url": "https://github.com/randomBox123/travisTest.git"  # gitian test
   "dir": "sugarchain"
 files: []
 script: |
