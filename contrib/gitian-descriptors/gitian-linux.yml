@@ -41,7 +41,7 @@ script: |
   FAKETIME_HOST_PROGS=""
   FAKETIME_PROGS="date ar ranlib nm"
   YESPOWER_PATH="${BUILD_DIR}/sugarchain/src/crypto/yespower-1.0.0"
-  HOST_CFLAGS="-O2 -g -I$YESPOWER_PATH"
+  HOST_CFLAGS="-O2 -g"
   HOST_CXXFLAGS="-O2 -g"
   HOST_LDFLAGS=-static-libstdc++
 
@@ -136,7 +136,7 @@ script: |
 
   # Create the release tarball using (arbitrarily) the first host
   ./autogen.sh
-  CONFIG_SITE=${BASEPREFIX}/`echo "${HOSTS}" | awk '{print $1;}'`/share/config.site ./configure --prefix=/
+  CONFIG_SITE=${BASEPREFIX}/`echo "${HOSTS}" | awk '{print $1;}'`/share/config.site ./configure --prefix=/ CFLAGS="-I$YESPOWER_PATH"
   make dist
   SOURCEDIST=`echo sugarchain-*.tar.gz`
   DISTNAME=`echo ${SOURCEDIST} | sed 's/.tar.*//'`
