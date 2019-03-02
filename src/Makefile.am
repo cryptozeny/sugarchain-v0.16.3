@@ -280,6 +280,16 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/yespower-1.0.0/yespower.h \
   crypto/yespower-1.0.0/yespower-opt.c
 
+noinst_HEADERS = \
+  crypto/yespower-1.0.0/insecure_memzero.h \
+  crypto/yespower-1.0.0/sha256.c \
+  crypto/yespower-1.0.0/sha256.h \
+  crypto/yespower-1.0.0/sysendian.h \
+  crypto/yespower-1.0.0/yespower-opt.c \
+  crypto/yespower-1.0.0/yespower-platform.c \
+  crypto/yespower-1.0.0/yespower-ref.c \
+  crypto/yespower-1.0.0/yespower.h
+
 if USE_ASM
 crypto_libbitcoin_crypto_a_SOURCES += crypto/sha256_sse4.cpp
 endif
