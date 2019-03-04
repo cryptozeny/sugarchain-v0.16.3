@@ -277,6 +277,7 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/sha512.cpp \
   crypto/sha512.h \
   crypto/yespower-1.0.0/sha256.c \
+  crypto/yespower-1.0.0/yespower.h \
   crypto/yespower-1.0.0/yespower-opt.c
 
 if USE_ASM
