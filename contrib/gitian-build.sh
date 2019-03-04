@@ -264,11 +264,13 @@ then
 	mkdir -p inputs
 
   # FIXME.SUGAR
-  # wget is too slow so fixed - osslsigncode
+  # wget is too slow so files pre-fixed - osslsigncode and XcodeSDK
   # wget -N -P inputs $osslPatchUrl
   echo 'a8c4e9cafba922f89de0df1f2152e7be286aba73f78505169bc351a7938dd911 inputs/osslsigncode-Backports-to-1.7.1.patch' | sha256sum -c
   # wget -N -P inputs $osslTarUrl
   echo 'f9a8cdb38b9c309326764ebc937cba1523a3a751a7ab05df3ecc99d18ae466c9 inputs/osslsigncode-1.7.1.tar.gz' | sha256sum -c
+  # Xcode SDK for macOS build
+  echo 'fc65dd34a3665a549cf2dc005c1d13fcead9ba17cadac6dfd0ebc46435729898 inputs/MacOSX10.11.sdk.tar.gz' | sha256sum -c
 
 	make -C ../sugarchain/depends download SOURCES_PATH=`pwd`/cache/common
 
