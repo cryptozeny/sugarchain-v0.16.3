@@ -165,7 +165,7 @@ script: |
     # WIN_BITCOIN_CONFIG="--disable-shared"
     # mv ${DISTNAME}/bin/*.dll ${DISTNAME}/lib/
     if [ -f ${DISTNAME}/bin/*.dll ]; then
-      mv ${DISTNAME}/bin/*.dll ${DISTNAME}/lib/ 
+      mv ${DISTNAME}/bin/*.dll ${DISTNAME}/lib/
     fi
     # END - DISABLE SHARED
 
