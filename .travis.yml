@@ -24,6 +24,7 @@ env:
     - WINEDEBUG=fixme-all
     - YESPOWER_PATH=$TRAVIS_BUILD_DIR/src/crypto/yespower-1.0.0
     - YESPOWER_OPTION="-fPIE -Wall -O2 -fomit-frame-pointer"
+    - YESPOWER_MSSE2_32BIT="-msse2"
     - WIN_BITCOIN_CONFIG="--disable-shared"
   matrix:
 # ARM
@@ -43,6 +44,7 @@ env:
       RUN_TESTS=true
       GOAL="install"
       BITCOIN_CONFIG="--enable-reduce-exports $WIN_BITCOIN_CONFIG"
+      YESPOWER_OPTION="$YESPOWER_OPTION $YESPOWER_MSSE2_32BIT"
 # Qt4 & system libs
     - >
       HOST=x86_64-unknown-linux-gnu
