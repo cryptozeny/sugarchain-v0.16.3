@@ -95,7 +95,7 @@ env:
       PACKAGES="cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev"
       BITCOIN_CONFIG="--enable-gui --enable-reduce-exports --enable-werror"
       OSX_SDK=10.11
-      GOAL="install"
+      GOAL="deploy"
 
 before_install:
     - export PATH=$(echo $PATH | tr ':' "\n" | sed '/\/opt\/python/d' | tr "\n" ":" | sed "s|::|:|g")
