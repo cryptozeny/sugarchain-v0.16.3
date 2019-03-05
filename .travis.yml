@@ -44,7 +44,7 @@ env:
       RUN_TESTS=true
       GOAL="install"
       BITCOIN_CONFIG="--enable-reduce-exports $WIN_BITCOIN_CONFIG"
-    # DISABLED (SLOW) # YESPOWER_OPTION="$YESPOWER_OPTION $YESPOWER_MSSE2_32BIT"
+    # disabled (slow "make check") # YESPOWER_OPTION="$YESPOWER_OPTION $YESPOWER_MSSE2_32BIT"
 # Qt4 & system libs
     - >
       HOST=x86_64-unknown-linux-gnu
