@@ -49,7 +49,8 @@ script: |
   HOST_CXXFLAGS="-O2 -g"
   HOST_LDFLAGS=-static-libstdc++
 
-  # enable "-msse2" on 32-Bit but not ARM
+  # YESPOWER
+  # enable "-msse2" only 32-Bit but not ARM (has no such options)
   for i in $HOSTS; do
     case $i in
       i686-*) :
@@ -57,7 +58,7 @@ script: |
         HOST_CFLAGS="${HOST_CFLAGS} ${YESPOWER_MSSE2_32BIT}"
         ;;
       *) :
-        echo "-msse2 enbaled only i686 (32-Bit)"
+        echo "-msse2 is not enbaled on ${i} - only i686 (32-Bit)"
         ;;
     esac
   done
