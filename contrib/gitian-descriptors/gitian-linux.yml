@@ -49,13 +49,13 @@ script: |
   HOST_CXXFLAGS="-O2 -g"
   HOST_LDFLAGS=-static-libstdc++
 
+  #
   # enable "-msse2" on 32-Bit but not ARM
+  #
   for i in $HOSTS; do
     case $i in
-      i686-*)
-        HOST_CFLAGS="${HOST_CFLAGS} ${YESPOWER_MSSE2_32BIT}" ;;
-      *)
-        echo "-msse2 enbaled only i686 (32-Bit)" ;;
+      i686-*) : HOST_CFLAGS="${HOST_CFLAGS} ${YESPOWER_MSSE2_32BIT}" ;;
+      *) echo "-msse2 enbaled only i686 (32-Bit)" ;;
     esac
   done
 
