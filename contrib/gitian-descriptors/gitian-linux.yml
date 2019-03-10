@@ -48,22 +48,6 @@ script: |
   HOST_CXXFLAGS="-O2 -g"
   HOST_LDFLAGS=-static-libstdc++
 
-  # YESPOWER
-  # enable "-msse2" only 32-Bit but not ARM (has no such options)
-  for i in $HOSTS; do
-    case $i in
-      i686-*) :
-        YESPOWER_MSSE2_32BIT="-msse2"
-        HOST_CFLAGS="${HOST_CFLAGS} ${YESPOWER_MSSE2_32BIT}"
-        echo "YESPOWER: -msse2 is enabled on ${i} - only i686 32-Bit"
-        ;;
-      *) :
-        HOST_CFLAGS="${HOST_CFLAGS}"
-        echo "YESPOWER: -msse2 is disabled on ${i} - not required"
-        ;;
-    esac
-  done
-
   export QT_RCC_TEST=1
   export GZIP="-9n"
   export TAR_OPTIONS="--mtime="$REFERENCE_DATE\\\ $REFERENCE_TIME""
@@ -183,6 +167,20 @@ script: |
     echo '#!/bin/true' >share/genbuild.sh
     mkdir src/obj
     cp ../src/obj/build.h src/obj/
+
+    # YESPOWER Linux32
+    # enable "-msse2" only 32-Bit (i686) but not ARM (has no such options)
+    case $i in
+       i686-*) :
+          YESPOWER_MSSE2_32BIT="-msse2"
+          HOST_CFLAGS="${HOST_CFLAGS} ${YESPOWER_MSSE2_32BIT}"
+          echo "YESPOWER: -msse2 is enabled on ${i} - only i686 32-Bit"
+          ;;
+       *) :
+          HOST_CFLAGS="${HOST_CFLAGS}"
+          echo "YESPOWER: -msse2 is disabled on ${i} - not required"
+          ;;
+    esac
 
     CONFIG_SITE=${BASEPREFIX}/${i}/share/config.site ./configure --prefix=/ --disable-ccache --disable-maintainer-mode --disable-dependency-tracking ${CONFIGFLAGS} CFLAGS="${HOST_CFLAGS}" CXXFLAGS="${HOST_CXXFLAGS}" LDFLAGS="${HOST_LDFLAGS}"
     make ${MAKEOPTS}
