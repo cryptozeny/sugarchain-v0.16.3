@@ -44,9 +44,20 @@ script: |
   FAKETIME_PROGS="date ar ranlib nm"
   YESPOWER_PATH="/home/ubuntu/build/sugarchain/src/crypto/yespower-1.0.0"
   YESPOWER_OPTION="-fPIE -Wall -O2 -fomit-frame-pointer"
+  YESPOWER_MSSE2_32BIT="-msse2"
   HOST_CFLAGS="-O2 -g -I${YESPOWER_PATH} ${YESPOWER_OPTION}"
   HOST_CXXFLAGS="-O2 -g"
   HOST_LDFLAGS=-static-libstdc++
+
+  # enable "-msse2" on 32-Bit but not ARM
+  for i in $HOSTS; do
+    case $i in
+      i686-*)
+        HOST_CFLAGS="${HOST_CFLAGS} ${YESPOWER_MSSE2_32BIT}" ;;
+      *)
+        echo "-msse2 enbaled only i686 (32-Bit)" ;;
+    esac
+  done
 
   export QT_RCC_TEST=1
   export GZIP="-9n"
