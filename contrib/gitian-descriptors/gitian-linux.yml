@@ -58,6 +58,7 @@ script: |
         echo "YESPOWER: -msse2 is enabled on ${i} - only i686 32-Bit"
         ;;
       *) :
+        HOST_CFLAGS="${HOST_CFLAGS}"
         echo "YESPOWER: -msse2 is disabled on ${i} - not required"
         ;;
     esac
