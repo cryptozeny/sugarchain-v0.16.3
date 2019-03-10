@@ -44,6 +44,7 @@ script: |
   FAKETIME_PROGS="date ar ranlib nm"
   YESPOWER_PATH="/home/ubuntu/build/sugarchain/src/crypto/yespower-1.0.0"
   YESPOWER_OPTION="-fPIE -Wall -O2 -fomit-frame-pointer"
+  YESPOWER_MSSE2_32BIT="-msse2"
   HOST_CFLAGS="-O2 -g -I${YESPOWER_PATH} ${YESPOWER_OPTION}"
   HOST_CXXFLAGS="-O2 -g"
   HOST_LDFLAGS=-static-libstdc++
@@ -111,6 +112,7 @@ script: |
     if [ "\$var" = "-m32" ]; then
       export C_INCLUDE_PATH="$EXTRA_INCLUDES_BASE/i686-pc-linux-gnu"
       export CPLUS_INCLUDE_PATH="$EXTRA_INCLUDES_BASE/i686-pc-linux-gnu"
+      YESPOWER_OPTION="${YESPOWER_OPTION} ${YESPOWER_MSSE2_32BIT}"
       break
     fi
   done
