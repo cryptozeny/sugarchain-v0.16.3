@@ -38,7 +38,7 @@ files: []
 script: |
 
   WRAP_DIR=$HOME/wrapped
-# HOSTS="i686-pc-linux-gnu x86_64-linux-gnu arm-linux-gnueabihf aarch64-linux-gnu"
+  ##### HOSTS="i686-pc-linux-gnu x86_64-linux-gnu arm-linux-gnueabihf aarch64-linux-gnu"
   HOSTS="i686-pc-linux-gnu"
   CONFIGFLAGS="--enable-glibc-back-compat --enable-reduce-exports --disable-bench --disable-gui-tests"
   FAKETIME_HOST_PROGS=""
@@ -49,9 +49,9 @@ script: |
   HOST_CXXFLAGS="-O2 -g"
   HOST_LDFLAGS=-static-libstdc++
 
-#
-# enable "-msse2" on 32-Bit but not ARM
-#
+  #
+  # enable "-msse2" on 32-Bit but not ARM
+  #
   for i in $HOSTS; do
     case $i in
       i686-*) :
