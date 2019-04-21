@@ -347,7 +347,10 @@ class CRegTestParams : public CChainParams {
 public:
     CRegTestParams() {
         strNetworkID = "regtest";
-        consensus.nSubsidyHalvingInterval = 150 * 120;    // 120x bitcoin // 150 * 120 = 18000
+        // consensus.nSubsidyHalvingInterval = 150 * 120;    // 120x bitcoin // 150 * 120 = 18000
+        // consensus.nSubsidyHalvingInterval = 720;  // SUGAR 1 hour = 60*60/5 = 720 // BTC 1 day = 60*60*24/600 = 144
+        consensus.nSubsidyHalvingInterval = 1;  // TEST
+        printf("nSubsidyHalvingInterval = %d\n", consensus.nSubsidyHalvingInterval);
         consensus.BIP16Height = 0; // always enforce P2SH BIP16 on regtest
         consensus.BIP34Height = 100000000; // BIP34 has not activated on regtest (far in the future so block v1 are not rejected in tests)
         consensus.BIP34Hash = uint256();
