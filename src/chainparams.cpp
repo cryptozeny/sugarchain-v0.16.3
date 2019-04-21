@@ -36,6 +36,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     genesis.hashPrevBlock.SetNull();
     genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
 
+    // DEBUG - SUGAR
     // REGTEST
     if (genesis.nTime == 1554336002) {
       printf("\n*** BEGIN - DEBUG: REGTEST\n");
@@ -114,6 +115,7 @@ public:
         // 0x1f3fffff == 0x003fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.GetCompact()
         consensus.powLimit = uint256S("003fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 
+        // DEBUG - SUGAR
         // printf("\n*** BEGIN - DEBUG: MAIN\n");
         // uint32_t powLimitTOnBits = UintToArith256(consensus.powLimit).GetCompact();
         // printf("powLimitTOnBits = 0x%x\n", powLimitTOnBits);
@@ -123,6 +125,7 @@ public:
         consensus.nPowAllowMinDifficultyBlocksAfterHeight = boost::none;
         consensus.nPowAveragingWindow = 510; // 2550 / nPowTargetSpacing(5) = 510
 
+        // DEBUG - SUGAR
         // printf("\n*** BEGIN - DEBUG: MAIN\n");
         // printf("nPowAveragingWindowRatio = %s\n", (maxUint/UintToArith256(consensus.powLimit)).ToString().c_str());
         // printf("nPowAveragingWindow = %ld\n", consensus.nPowAveragingWindow);
@@ -172,11 +175,14 @@ public:
 
         genesis = CreateGenesisBlock(1541009400, 923, 0x1f3fffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
+
+        // DEBUG - SUGAR
         // printf("***\n");
         // printf("genesis.GetHash.MAIN = %s\n", genesis.GetHash().ToString().c_str());
         // printf("genesis.GetPoWHash.MAIN = %s\n", genesis.GetPoWHash().ToString().c_str());
         // printf("genesis.hashMerkleRoot.MAIN %s\n",genesis.hashMerkleRoot.ToString().c_str());
         // printf("***\n");
+
         assert(genesis.GetPoWHash() == uint256S("0x0029b293e4997ac10b4f10e4da3dcd0de8c1331f2e688275659a42889c705ecb")); // genesis
         assert(consensus.hashGenesisBlock == uint256S("0x8e8e0270b7a6bc36e42cb4dca7ffee7e7648447fe102d1e4006cbc1bc9f8cc19")); // genesis
         assert(genesis.hashMerkleRoot == uint256S("0x09a754250024b34f2d2a8e0edbb43375fbb024ec6025edb243b32e50b6c20d76"));
@@ -252,6 +258,7 @@ public:
         // 0x1f7fffff == 0x007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.GetCompact()
         consensus.powLimit = uint256S("007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // 0x1f7fffff for nPowAveragingWindowRatio
 
+        // DEBUG - SUGAR
         // printf("\n*** BEGIN - DEBUG: TESTNET\n");
         // uint32_t powLimitTOnBits = UintToArith256(consensus.powLimit).GetCompact();
         // printf("powLimitTOnBits = 0x%x\n", powLimitTOnBits);
@@ -261,6 +268,7 @@ public:
         consensus.nPowAllowMinDifficultyBlocksAfterHeight = boost::none;
         consensus.nPowAveragingWindow = 510; // 2550 / nPowTargetSpacing(5) = 510
 
+        // DEBUG - SUGAR
         // printf("\n*** BEGIN - DEBUG: TESTNET\n");
         // printf("nPowAveragingWindowRatio = %s\n", (maxUint/UintToArith256(consensus.powLimit)).ToString().c_str());
         // printf("nPowAveragingWindow = %ld\n", consensus.nPowAveragingWindow);
@@ -305,11 +313,14 @@ public:
 
         genesis = CreateGenesisBlock(1541009401, 394, 0x1f7fffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
+
+        // DEBUG - SUGAR
         // printf("***\n");
         // printf("genesis.GetHash.TESTNET = %s\n", genesis.GetHash().ToString().c_str());
         // printf("genesis.GetPoWHash.TESTNET = %s\n", genesis.GetPoWHash().ToString().c_str());
         // printf("genesis.hashMerkleRoot.TESTNET %s\n",genesis.hashMerkleRoot.ToString().c_str());
         // printf("***\n");
+
         assert(genesis.GetPoWHash() == uint256S("0x00133bad1ca029db690e3f70bd393fa939d1df0995a46ff978454e3f493ecfdb")); // genesis
         assert(consensus.hashGenesisBlock == uint256S("0xfd848e7312b097c0f2c5c968153e37c6f5fbca7d0c42d3bb7ddd86dcf4920b3e")); // genesis
         assert(genesis.hashMerkleRoot == uint256S("0x09a754250024b34f2d2a8e0edbb43375fbb024ec6025edb243b32e50b6c20d76"));
@@ -364,6 +375,8 @@ public:
         // Halving Interval // FIXME.SUGAR // SURE?
         // consensus.nSubsidyHalvingInterval = 150 * 120;    // 120x bitcoin // 150 * 120 = 18000
         consensus.nSubsidyHalvingInterval = 1;  // TEST // 1*5 = 5sec
+
+        // DEBUG - SUGAR
         // printf("nSubsidyHalvingInterval = %d\n", consensus.nSubsidyHalvingInterval);
 
         consensus.BIP16Height = 0; // always enforce P2SH BIP16 on regtest
@@ -387,6 +400,7 @@ public:
         // 0x200f0f0f == 0x0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f.GetCompact()
         consensus.powLimit = uint256S("0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f");
 
+        // DEBUG - SUGAR
         // printf("\n*** BEGIN - DEBUG: REGTEST\n");
         // uint32_t powLimitTOnBits = UintToArith256(consensus.powLimit).GetCompact();
         // printf("powLimitTOnBits = 0x%x\n", powLimitTOnBits);
@@ -396,6 +410,7 @@ public:
         consensus.nPowAllowMinDifficultyBlocksAfterHeight = boost::none;
         consensus.nPowAveragingWindow = 17; // EXCEPTION FOR REGTEST // 85 / nPowTargetSpacing(5) = 17
 
+        // DEBUG - SUGAR
         // printf("\n*** BEGIN - DEBUG: REGTEST\n");
         // printf("nPowAveragingWindowRatio = %s\n", (maxUint/UintToArith256(consensus.powLimit)).ToString().c_str());
         // printf("nPowAveragingWindow = %ld\n", consensus.nPowAveragingWindow);
@@ -440,6 +455,7 @@ public:
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
+        // DEBUG - SUGAR
         // printf("\n*** BEGIN - DEBUG: REGTEST\n");
         // printf("genesis.GetHash.REGTEST = %s\n", genesis.GetHash().ToString().c_str());
         // printf("genesis.GetPoWHash.REGTEST = %s\n", genesis.GetPoWHash().ToString().c_str());

@@ -1152,7 +1152,7 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     // FIXME.SUGAR // SURE?
     CAmount nSubsidy = 42.94967296 * COIN; // 2^32/COIN = 42.94967296 (was 50)
 
-    // DEBUG
+    // DEBUG - SUGAR
     if (halvings == 1) { // no output if it zero(0)
       printf("\n*** BEGIN - DEBUG: GetBlockSubsidy\n");
       printf("nSubsidy & COIN = %ld %ld\n", nSubsidy, COIN);
@@ -1165,7 +1165,7 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
     nSubsidy >>= halvings;
 
-    // DEBUG
+    // DEBUG - SUGAR
     if (halvings > 0) {
       printf("\n*** BEGIN - DEBUG: nSubsidy\n");
       printf("halvings & nSubsidy = %d %ld\n", halvings, nSubsidy);
