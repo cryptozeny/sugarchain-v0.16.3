@@ -434,9 +434,9 @@ public:
         nDefaultPort = 17799;
         nPruneAfterHeight = 1000;
 
-        // genesis = CreateGenesisBlock(1541009402, 46, 0x200f0f0f, 1, 50 * COIN);
-        // date -d '2019-04-04 00:00:00 UTC' +%s = 1554336000 // REGTEST=+2 = 1554336002
-        genesis = CreateGenesisBlock(1554336002, 11, 0x200f0f0f, 1, 42.94967296 * COIN); // pow(2,32) = 4294967296 (was 50 * COIN, COIN=100000000)
+        // nTime: date -d '2019-04-04 00:00:00 UTC' +%s = 1554336000 // REGTEST=+2 = 1554336002
+        // genesisReward: pow(2,32) / COIN = 42.94967296 (was 50)
+        genesis = CreateGenesisBlock(1554336002, 11, 0x200f0f0f, 1, 42.94967296 * COIN);
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
