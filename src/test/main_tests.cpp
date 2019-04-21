@@ -16,7 +16,7 @@ BOOST_FIXTURE_TEST_SUITE(main_tests, TestingSetup)
 static void TestBlockSubsidyHalvings(const Consensus::Params& consensusParams)
 {
     int maxHalvings = 64;
-    CAmount nInitialSubsidy = 50 * COIN;
+    CAmount nInitialSubsidy = 42.94967296 * COIN; // 2^32/COIN = 42.94967296 (was 50)
 
     CAmount nPreviousSubsidy = nInitialSubsidy * 2; // for height == 0
     BOOST_CHECK_EQUAL(nPreviousSubsidy, nInitialSubsidy * 2);
@@ -51,14 +51,13 @@ BOOST_AUTO_TEST_CASE(subsidy_limit_test)
     CAmount nSum = 0;
     for (int nHeight = 0; nHeight < 14000000 * 120; nHeight += 1000) { // 120x bitcoin // 14000000 * 120 = 1680000000
         CAmount nSubsidy = GetBlockSubsidy(nHeight, chainParams->GetConsensus());
-        BOOST_CHECK(nSubsidy <= 50 * COIN);
+        BOOST_CHECK(nSubsidy <= 42.94967296 * COIN); // 2^32/COIN = 42.94967296 (was 50)
         nSum += nSubsidy * 1000;
         BOOST_CHECK(MoneyRange(nSum));
     }
     // 120x bitcoin
     // (2100000000000000 * 120) - 277200000
-    // ./src/test/test_sugarchain test_bitcoin --log_level=test_suite --run_test=compress_tests
-    BOOST_CHECK_EQUAL(nSum, CAmount{251999999722800000});
+    BOOST_CHECK_EQUAL(nSum, CAmount{251999999722800000}); // (was 2099999997690000ULL)
 }
 
 bool ReturnFalse() { return false; }
