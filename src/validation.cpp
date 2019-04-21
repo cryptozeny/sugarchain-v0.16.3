@@ -1153,11 +1153,11 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     CAmount nSubsidy = 42.94967296 * COIN; // 2^32/COIN = 42.94967296 (was 50)
 
     // DEBUG - SUGAR
-    if (halvings == 1) { // no output if it zero(0)
+    /*if (halvings == 1) { // no output if it zero(0)
       printf("\n*** BEGIN - DEBUG: GetBlockSubsidy\n");
       printf("nSubsidy & COIN = %ld %ld\n", nSubsidy, COIN);
       printf("*** END - DEBUG\n");
-    }
+    }*/
     /* OUTPUT
     nSubsidy & COIN = 4294967296 100000000
     */
@@ -1166,11 +1166,11 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     nSubsidy >>= halvings;
 
     // DEBUG - SUGAR
-    if (halvings > 0) {
+    /*if (halvings > 0) {
       printf("\n*** BEGIN - DEBUG: nSubsidy\n");
       printf("halvings & nSubsidy = %d %ld\n", halvings, nSubsidy);
       printf("*** END - DEBUG\n");
-    }
+    }*/
     /* OUTPUT
     halvings & nSubsidy = 1 2147483648
     halvings & nSubsidy = 2 1073741824
