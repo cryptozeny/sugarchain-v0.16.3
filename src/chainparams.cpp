@@ -347,10 +347,12 @@ class CRegTestParams : public CChainParams {
 public:
     CRegTestParams() {
         strNetworkID = "regtest";
+
+        // Halving Interval // FIXME.SUGAR // SURE?
         // consensus.nSubsidyHalvingInterval = 150 * 120;    // 120x bitcoin // 150 * 120 = 18000
-        // consensus.nSubsidyHalvingInterval = 720;  // SUGAR 1 hour = 60*60/5 = 720 // BTC 1 day = 60*60*24/600 = 144
-        consensus.nSubsidyHalvingInterval = 1;  // TEST
-        printf("nSubsidyHalvingInterval = %d\n", consensus.nSubsidyHalvingInterval);
+        consensus.nSubsidyHalvingInterval = 1;  // TEST // 1*5 = 5sec
+        // printf("nSubsidyHalvingInterval = %d\n", consensus.nSubsidyHalvingInterval);
+
         consensus.BIP16Height = 0; // always enforce P2SH BIP16 on regtest
         consensus.BIP34Height = 100000000; // BIP34 has not activated on regtest (far in the future so block v1 are not rejected in tests)
         consensus.BIP34Hash = uint256();
@@ -410,7 +412,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("ec36492559864500ff4798612ac0deca8db987a7fa3410a2a4fdad364b273ac8"); // genesis
+        consensus.defaultAssumeValid = uint256S("7c9807c6fa1ceae35770a6f41fd18a867dbd06c80af40446fc188ab50f0dbdcf"); // genesis
 
         pchMessageStart[0] = 0xaf;
         pchMessageStart[1] = 0xfb;
@@ -420,15 +422,19 @@ public:
         nPruneAfterHeight = 1000;
 
         // genesis = CreateGenesisBlock(1541009402, 46, 0x200f0f0f, 1, 50 * COIN);
-        genesis = CreateGenesisBlock(1541009402, 0, 0x200f0f0f, 1, 4294967296); // pow(2,32) = 4294967296
+        // date -d '2019-04-04 00:00:00 UTC' +%s = 1554336000
+        genesis = CreateGenesisBlock(1554336002, 11, 0x200f0f0f, 1, 4294967296); // pow(2,32) = 4294967296
+
         consensus.hashGenesisBlock = genesis.GetHash();
-        printf("***\n");
-        printf("genesis.GetHash.REGTEST = %s\n", genesis.GetHash().ToString().c_str());
-        printf("genesis.GetPoWHash.REGTEST = %s\n", genesis.GetPoWHash().ToString().c_str());
-        printf("genesis.hashMerkleRoot.REGTEST %s\n",genesis.hashMerkleRoot.ToString().c_str());
-        printf("***\n");
-        assert(genesis.GetPoWHash() == uint256S("0512570b154f5a38264183958e3238fd10eeae4b5ca552c3826abb311878bc71")); // genesis
-        assert(consensus.hashGenesisBlock == uint256S("ec36492559864500ff4798612ac0deca8db987a7fa3410a2a4fdad364b273ac8")); // genesis
+
+        // printf("\n*** BEGIN - DEBUG: REGTEST\n");
+        // printf("genesis.GetHash.REGTEST = %s\n", genesis.GetHash().ToString().c_str());
+        // printf("genesis.GetPoWHash.REGTEST = %s\n", genesis.GetPoWHash().ToString().c_str());
+        // printf("genesis.hashMerkleRoot.REGTEST %s\n",genesis.hashMerkleRoot.ToString().c_str());
+        // printf("*** END - DEBUG\n");
+
+        assert(genesis.GetPoWHash() == uint256S("058dbd6e52e954425b873335939e5394228bf968c0071db2327579d6f0557c7a")); // genesis
+        assert(consensus.hashGenesisBlock == uint256S("7c9807c6fa1ceae35770a6f41fd18a867dbd06c80af40446fc188ab50f0dbdcf")); // genesis
         assert(genesis.hashMerkleRoot == uint256S("4059da1dac0fe2761276837e64895d2ee55330558e58d29d7369499b31030102"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
@@ -440,7 +446,7 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("ec36492559864500ff4798612ac0deca8db987a7fa3410a2a4fdad364b273ac8")}, // genesis
+                {0, uint256S("7c9807c6fa1ceae35770a6f41fd18a867dbd06c80af40446fc188ab50f0dbdcf")}, // genesis
             }
         };
 
