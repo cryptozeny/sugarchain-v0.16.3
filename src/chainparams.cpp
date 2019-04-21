@@ -423,7 +423,7 @@ public:
 
         // genesis = CreateGenesisBlock(1541009402, 46, 0x200f0f0f, 1, 50 * COIN);
         // date -d '2019-04-04 00:00:00 UTC' +%s = 1554336000
-        genesis = CreateGenesisBlock(1554336002, 11, 0x200f0f0f, 1, 4294967296); // pow(2,32) = 4294967296
+        genesis = CreateGenesisBlock(1554336002, 11, 0x200f0f0f, 1, 42.94967296 * COIN); // pow(2,32) = 4294967296 (was 50 * COIN, COIN=100000000)
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
