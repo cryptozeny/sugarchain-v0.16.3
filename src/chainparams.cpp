@@ -35,6 +35,19 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     genesis.vtx.push_back(MakeTransactionRef(std::move(txNew)));
     genesis.hashPrevBlock.SetNull();
     genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
+
+    // REGTEST
+    if (genesis.nTime == 1554336002) {
+      printf("\n*** BEGIN - DEBUG: REGTEST\n");
+      printf("nTime = %u\n", nTime);
+      printf("nNonce = %u\n", nNonce);
+      printf("nBits = 0x%x\n", nBits);
+      printf("nVersion = %d\n", nVersion);
+      printf("genesisReward = %ld\n", genesisReward);
+      printf("COIN = %ld\n", COIN);
+      printf("*** END - DEBUG\n");
+    }
+
     return genesis;
 }
 
@@ -422,7 +435,7 @@ public:
         nPruneAfterHeight = 1000;
 
         // genesis = CreateGenesisBlock(1541009402, 46, 0x200f0f0f, 1, 50 * COIN);
-        // date -d '2019-04-04 00:00:00 UTC' +%s = 1554336000
+        // date -d '2019-04-04 00:00:00 UTC' +%s = 1554336000 // REGTEST=+2 = 1554336002
         genesis = CreateGenesisBlock(1554336002, 11, 0x200f0f0f, 1, 42.94967296 * COIN); // pow(2,32) = 4294967296 (was 50 * COIN, COIN=100000000)
 
         consensus.hashGenesisBlock = genesis.GetHash();
