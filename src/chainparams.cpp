@@ -37,6 +37,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
 
     // DEBUG - SUGAR
+    /*
     // MAINNET
     if (genesis.nTime == 1554336000) {
       printf("\n*** BEGIN - DEBUG: MAINNET\n");
@@ -48,6 +49,8 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
       printf("COIN = %ld\n", COIN);
       printf("*** END - DEBUG\n");
     }
+    */
+    /*
     // REGTEST
     if (genesis.nTime == 1554336002) {
       printf("\n*** BEGIN - DEBUG: REGTEST\n");
@@ -59,6 +62,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
       printf("COIN = %ld\n", COIN);
       printf("*** END - DEBUG\n");
     }
+    */
 
     return genesis;
 }
