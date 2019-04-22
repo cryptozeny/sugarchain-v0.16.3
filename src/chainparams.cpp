@@ -416,9 +416,8 @@ public:
     CRegTestParams() {
         strNetworkID = "regtest";
 
-        // Halving Interval // FIXME.SUGAR // SURE?
-        // consensus.nSubsidyHalvingInterval = 150 * 120;    // 120x bitcoin // 150 * 120 = 18000
-        consensus.nSubsidyHalvingInterval = 1;  // TEST // 1*5 = 5sec
+        // SUGAR-HALVING // (was same as BTC)
+        consensus.nSubsidyHalvingInterval = 150;
 
         // DEBUG - SUGAR
         // printf("nSubsidyHalvingInterval = %d\n", consensus.nSubsidyHalvingInterval);
@@ -450,9 +449,11 @@ public:
         // printf("powLimitTOnBits = 0x%x\n", powLimitTOnBits);
         // printf("*** END - DEBUG\n");
 
+        // SUGAR-HALVING // (was same as BTC)
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks: 1209600
-        consensus.nPowAllowMinDifficultyBlocksAfterHeight = boost::none;
-        consensus.nPowAveragingWindow = 17; // EXCEPTION FOR REGTEST // 85 / nPowTargetSpacing(5) = 17
+
+        consensus.nPowAllowMinDifficultyBlocksAfterHeight = boost::none; // DigiShieldZEC
+        consensus.nPowAveragingWindow = 17; // DigiShieldZEC // 85/nPowTargetSpacing(5) = 17
 
         // DEBUG - SUGAR
         // printf("\n*** BEGIN - DEBUG: REGTEST\n");
@@ -460,16 +461,26 @@ public:
         // printf("nPowAveragingWindow = %ld\n", consensus.nPowAveragingWindow);
         // printf("*** END - DEBUG\n");
 
-        assert(maxUint/UintToArith256(consensus.powLimit) == 17); // 0x0000000000000000000000000000000000000000000000000000000000000011 == 17
-        assert(maxUint/UintToArith256(consensus.powLimit) >= consensus.nPowAveragingWindow); // true: 17 >= 17
+        assert(maxUint/UintToArith256(consensus.powLimit) == 17); // DigiShieldZEC // 0x0000000000000000000000000000000000000000000000000000000000000011 == 17
+        assert(maxUint/UintToArith256(consensus.powLimit) >= consensus.nPowAveragingWindow); // DigiShieldZEC // true: 17 >= 17
 
-        consensus.nPowMaxAdjustDown = 0; // Turn off adjustment down
-        consensus.nPowMaxAdjustUp = 0; // Turn off adjustment up
-        consensus.nPowTargetSpacing = 10 * 60 / 120; // 5 sec. // 120x bitcoin
-        consensus.fPowAllowMinDifficultyBlocks = true;
-        consensus.fPowNoRetargeting = true;
-        consensus.nRuleChangeActivationThreshold = 108 * 120; // 75% for testchains // 120x bitcoin // 108 * 120 = 12960
-        consensus.nMinerConfirmationWindow = 144 * 120; // Faster than normal for regtest (144 instead of 2016) // 120x bitcoin // 144 * 120 = 17280
+        consensus.nPowMaxAdjustDown = 0; // DigiShieldZEC // Turn off adjustment down
+        consensus.nPowMaxAdjustUp = 0; // DigiShieldZEC // Turn off adjustment up
+
+        // SUGAR-HALVING
+        // 10*60/120 = 5 seconds block time
+        // 120x faster than bitcoin
+        consensus.nPowTargetSpacing = 5;
+
+        consensus.fPowAllowMinDifficultyBlocks = true; // DigiShieldZEC
+        consensus.fPowNoRetargeting = true; // DigiShieldZEC
+
+        // SUGAR-HALVING // (was same as BTC)
+        consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains
+
+        // SUGAR-HALVING // (was same as BTC)
+        consensus.nMinerConfirmationWindow = 144; // Faster than normal for regtest (144 instead of 2016)
+
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
