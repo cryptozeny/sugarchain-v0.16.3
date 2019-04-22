@@ -316,16 +316,16 @@ public:
         /*
         >>> "%d" % 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         '115792089237316195423570985008687907853269984665640564039457584007913129639935'
-        >>> 115792089237316195423570985008687907853269984665640564039457584007913129639935 / 512
-        226156424291633194186662080095093570025917938800079226639565593765455331327L
-        >>> "%x" % 226156424291633194186662080095093570025917938800079226639565593765455331327L
-        '7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff'
+        >>> 115792089237316195423570985008687907853269984665640564039457584007913129639935 / 1024
+        113078212145816597093331040047546785012958969400039613319782796882727665663L
+        >>> "%x" % 113078212145816597093331040047546785012958969400039613319782796882727665663L
+        '3fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff'
         >>>
         */
 
-        // getdifficulty() == 1.192074847720173e-07
-        // 0x1f7fffff == 0x007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.GetCompact()
-        consensus.powLimit = uint256S("007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // 0x1f7fffff for nPowAveragingWindowRatio
+        // getdifficulty() == 2.384149979653205e-07
+        // 0x1f3fffff == 0x003fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.GetCompact()
+        consensus.powLimit = uint256S("003fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 
         // DEBUG - SUGAR
         // printf("\n*** BEGIN - DEBUG: TESTNET\n");
@@ -347,8 +347,8 @@ public:
         // printf("nPowAveragingWindow = %ld\n", consensus.nPowAveragingWindow);
         // printf("*** END - DEBUG\n");
 
-        assert(maxUint/UintToArith256(consensus.powLimit) == 512); // DigiShieldZEC // 0x0000000000000000000000000000000000000000000000000000000000000200 == 512
-        assert(maxUint/UintToArith256(consensus.powLimit) >= consensus.nPowAveragingWindow); // DigiShieldZEC // true: 512 >= 510
+        assert(maxUint/UintToArith256(consensus.powLimit) == 1024); // DigiShieldZEC // 0x0000000000000000000000000000000000000000000000000000000000000400 == 1024
+        assert(maxUint/UintToArith256(consensus.powLimit) >= consensus.nPowAveragingWindow); // DigiShieldZEC // true: 1024 >= 510
 
         consensus.nPowMaxAdjustDown = 32; // DigiShieldZEC // 32% adjustment down
         consensus.nPowMaxAdjustUp = 16; // DigiShieldZEC // 16% adjustment up
@@ -389,7 +389,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00"); // FIXME.SUGAR
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("1c8ff01cad545b2c4abf2a28d96f59bc6ec6a020edbd473c01f063fb7055bb1d"); // genesis
+        consensus.defaultAssumeValid = uint256S("e15ac61305c307e84db7906afef45a1acf1148b8c1f649645132ff66af7a760d"); // genesis
 
         pchMessageStart[0] = 0xb0;
         pchMessageStart[1] = 0x11;
@@ -400,7 +400,7 @@ public:
 
         // nTime: date -d '2019-04-04 00:00:00 UTC' +%s = 1554336000 // TESTNET=+1 = 1554336001
         // genesisReward: pow(2,32) / COIN = 42.94967296 (was 50)
-        genesis = CreateGenesisBlock(1554336001, 0, 0x1f7fffff, 1, 42.94967296 * COIN);
+        genesis = CreateGenesisBlock(1554336001, 201, 0x1f3fffff, 1, 42.94967296 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
         // DEBUG - SUGAR
@@ -410,8 +410,8 @@ public:
         // printf("genesis.hashMerkleRoot.TESTNET %s\n",genesis.hashMerkleRoot.ToString().c_str());
         // printf("***\n");
 
-        assert(genesis.GetPoWHash() == uint256S("0024752d1c7f5a33954096e5b06c118d0bf8b5a98f19e351886d24e800f8bd6b")); // genesis
-        assert(consensus.hashGenesisBlock == uint256S("1c8ff01cad545b2c4abf2a28d96f59bc6ec6a020edbd473c01f063fb7055bb1d")); // genesis
+        assert(genesis.GetPoWHash() == uint256S("001f6ae059f121fee44269a7ff224c9672b4e7eeda95ab96356ccfdf39a70132")); // genesis
+        assert(consensus.hashGenesisBlock == uint256S("e15ac61305c307e84db7906afef45a1acf1148b8c1f649645132ff66af7a760d")); // genesis
         assert(genesis.hashMerkleRoot == uint256S("4059da1dac0fe2761276837e64895d2ee55330558e58d29d7369499b31030102"));
 
         vFixedSeeds.clear();
@@ -440,7 +440,7 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("1c8ff01cad545b2c4abf2a28d96f59bc6ec6a020edbd473c01f063fb7055bb1d")}, // genesis
+                {0, uint256S("e15ac61305c307e84db7906afef45a1acf1148b8c1f649645132ff66af7a760d")}, // genesis
             }
         };
 
