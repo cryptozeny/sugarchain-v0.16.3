@@ -37,6 +37,17 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
 
     // DEBUG - SUGAR
+    // MAINNET
+    if (genesis.nTime == 1554336000) {
+      printf("\n*** BEGIN - DEBUG: MAINNET\n");
+      printf("nTime = %u\n", nTime);
+      printf("nNonce = %u\n", nNonce);
+      printf("nBits = 0x%x\n", nBits);
+      printf("nVersion = %d\n", nVersion);
+      printf("genesisReward = %ld\n", genesisReward);
+      printf("COIN = %ld\n", COIN);
+      printf("*** END - DEBUG\n");
+    }
     // REGTEST
     if (genesis.nTime == 1554336002) {
       printf("\n*** BEGIN - DEBUG: REGTEST\n");
@@ -93,7 +104,14 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 210000 * 120; // 120x bitcoin // 210000 * 120 = 25200000
+
+        // SUGAR-HALVING
+        // exactly 2 years = 60*60*24*365*2/5
+        // 5 is 5 seconds blocktime
+        // BTC: (was 210000)
+        // oldSugar: (was 25200000 = about 4 years)
+        consensus.nSubsidyHalvingInterval = 12614400;
+
         consensus.BIP16Height = 0;  // always on
         consensus.BIP34Height = 17;
         consensus.BIP34Hash = uint256S("");   // FIXME.SUGAR
@@ -121,9 +139,13 @@ public:
         // printf("powLimitTOnBits = 0x%x\n", powLimitTOnBits);
         // printf("*** END - DEBUG\n");
 
-        consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks: 1209600
-        consensus.nPowAllowMinDifficultyBlocksAfterHeight = boost::none;
-        consensus.nPowAveragingWindow = 510; // 2550 / nPowTargetSpacing(5) = 510
+        // SUGAR-HALVING
+        // 17 hours = 17*60*60 = 61200 (was two weeks: 14×24×60×60 = 1209600)
+        // available: 17 hours or 17 days possible, because DigiShieldZEC uses n510 (17*n)
+        consensus.nPowTargetTimespan = 61200;
+
+        consensus.nPowAllowMinDifficultyBlocksAfterHeight = boost::none; // DigiShieldZEC
+        consensus.nPowAveragingWindow = 510; // DigiShieldZEC // 2550/nPowTargetSpacing(5) = 510
 
         // DEBUG - SUGAR
         // printf("\n*** BEGIN - DEBUG: MAIN\n");
@@ -131,16 +153,30 @@ public:
         // printf("nPowAveragingWindow = %ld\n", consensus.nPowAveragingWindow);
         // printf("*** END - DEBUG\n");
 
-        assert(maxUint/UintToArith256(consensus.powLimit) == 1024); // 0x0000000000000000000000000000000000000000000000000000000000000400 == 1024
-        assert(maxUint/UintToArith256(consensus.powLimit) >= consensus.nPowAveragingWindow); // true: 1024 >= 510
+        assert(maxUint/UintToArith256(consensus.powLimit) == 1024); // DigiShieldZEC // 0x0000000000000000000000000000000000000000000000000000000000000400 == 1024
+        assert(maxUint/UintToArith256(consensus.powLimit) >= consensus.nPowAveragingWindow); // DigiShieldZEC // true: 1024 >= 510
 
-        consensus.nPowMaxAdjustDown = 32; // 32% adjustment down
-        consensus.nPowMaxAdjustUp = 16; // 16% adjustment up
-        consensus.nPowTargetSpacing = 10 * 60 / 120; // 5 sec. // 120x bitcoin
-        consensus.fPowAllowMinDifficultyBlocks = false;
-        consensus.fPowNoRetargeting = false;
-        consensus.nRuleChangeActivationThreshold = 1512 * 120; // 75% of 2016 // 120x bitcoin // 1512 * 120 = 181440
-        consensus.nMinerConfirmationWindow = 2016 * 120; // nPowTargetTimespan / nPowTargetSpacing // 120x bitcoin // 2016 * 120 = 241920
+        consensus.nPowMaxAdjustDown = 32; // DigiShieldZEC // 32% adjustment down
+        consensus.nPowMaxAdjustUp = 16; // DigiShieldZEC // 16% adjustment up
+
+        // SUGAR-HALVING
+        // 10*60/120 = 5 seconds block time
+        // 120x faster than bitcoin
+        consensus.nPowTargetSpacing = 5;
+
+        consensus.fPowAllowMinDifficultyBlocks = false; // DigiShieldZEC
+        consensus.fPowNoRetargeting = false; // DigiShieldZEC
+
+        // SUGAR-HALVING
+        // 75% of nMinerConfirmationWindow = 61200/5*0.75 = 9180 (was 1916 = 1209600/600*0.95+0.8)
+        // 9180/510 = 18 cycles of DigiShieldZEC
+        consensus.nRuleChangeActivationThreshold = 9180;
+
+        // SUGAR-HALVING
+        // nPowTargetTimespan/nPowTargetSpacing = 61200/5 = 12240 (was 2016 = 1209600/600)
+        // 12240/510 = 24 cycles of DigiShieldZEC
+        consensus.nMinerConfirmationWindow = 12240;
+
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
@@ -159,7 +195,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00"); // FIXME.SUGAR
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x8e8e0270b7a6bc36e42cb4dca7ffee7e7648447fe102d1e4006cbc1bc9f8cc19"); // genesis
+        consensus.defaultAssumeValid = uint256S("6068e545c100bdfa51beb3bf250656d1dd87030a56dc02b79b605a314e3681b5"); // genesis
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -173,20 +209,23 @@ public:
         nDefaultPort = 7979;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1541009400, 923, 0x1f3fffff, 1, 50 * COIN);
+        // nTime: date -d '2019-04-04 00:00:00 UTC' +%s = 1554336000 // MAINNET=+0 = 1554336000
+        // genesisReward: pow(2,32) / COIN = 42.94967296 (was 50)
+        genesis = CreateGenesisBlock(1554336000, 2645, 0x1f3fffff, 1, 42.94967296 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
         // DEBUG - SUGAR
         // printf("***\n");
-        // printf("genesis.GetHash.MAIN = %s\n", genesis.GetHash().ToString().c_str());
         // printf("genesis.GetPoWHash.MAIN = %s\n", genesis.GetPoWHash().ToString().c_str());
+        // printf("genesis.GetHash.MAIN = %s\n", genesis.GetHash().ToString().c_str());
         // printf("genesis.hashMerkleRoot.MAIN %s\n",genesis.hashMerkleRoot.ToString().c_str());
         // printf("***\n");
 
-        assert(genesis.GetPoWHash() == uint256S("0x0029b293e4997ac10b4f10e4da3dcd0de8c1331f2e688275659a42889c705ecb")); // genesis
-        assert(consensus.hashGenesisBlock == uint256S("0x8e8e0270b7a6bc36e42cb4dca7ffee7e7648447fe102d1e4006cbc1bc9f8cc19")); // genesis
-        assert(genesis.hashMerkleRoot == uint256S("0x09a754250024b34f2d2a8e0edbb43375fbb024ec6025edb243b32e50b6c20d76"));
+        assert(genesis.GetPoWHash() == uint256S("002693799fdf94d1522a127e11903d5bc3a14edf866d00a5703e59159d644437")); // genesis
+        assert(consensus.hashGenesisBlock == uint256S("6068e545c100bdfa51beb3bf250656d1dd87030a56dc02b79b605a314e3681b5")); // genesis
+        assert(genesis.hashMerkleRoot == uint256S("4059da1dac0fe2761276837e64895d2ee55330558e58d29d7369499b31030102"));
 
+        // TODO.SUGAR - seeder
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
         // This is fine at runtime as we'll fall back to using them as a oneshot if they dont support the
@@ -215,10 +254,11 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("0x8e8e0270b7a6bc36e42cb4dca7ffee7e7648447fe102d1e4006cbc1bc9f8cc19")}, // genesis
+                {0, uint256S("6068e545c100bdfa51beb3bf250656d1dd87030a56dc02b79b605a314e3681b5")}, // genesis
             }
         };
 
+        // FIXME.SUGAR
         chainTxData = ChainTxData{
             // Data as of block 0000000000000000002d6cca6761c99b3c2e936f9a0e304b7c7651a993f461de (height 506081).
             0,  // * UNIX timestamp of last known number of transactions
@@ -316,8 +356,8 @@ public:
 
         // DEBUG - SUGAR
         // printf("***\n");
-        // printf("genesis.GetHash.TESTNET = %s\n", genesis.GetHash().ToString().c_str());
         // printf("genesis.GetPoWHash.TESTNET = %s\n", genesis.GetPoWHash().ToString().c_str());
+        // printf("genesis.GetHash.TESTNET = %s\n", genesis.GetHash().ToString().c_str());
         // printf("genesis.hashMerkleRoot.TESTNET %s\n",genesis.hashMerkleRoot.ToString().c_str());
         // printf("***\n");
 
@@ -457,8 +497,8 @@ public:
 
         // DEBUG - SUGAR
         // printf("\n*** BEGIN - DEBUG: REGTEST\n");
-        // printf("genesis.GetHash.REGTEST = %s\n", genesis.GetHash().ToString().c_str());
         // printf("genesis.GetPoWHash.REGTEST = %s\n", genesis.GetPoWHash().ToString().c_str());
+        // printf("genesis.GetHash.REGTEST = %s\n", genesis.GetHash().ToString().c_str());
         // printf("genesis.hashMerkleRoot.REGTEST %s\n",genesis.hashMerkleRoot.ToString().c_str());
         // printf("*** END - DEBUG\n");
 
