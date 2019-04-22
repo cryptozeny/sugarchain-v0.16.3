@@ -63,6 +63,9 @@ BOOST_AUTO_TEST_CASE(subsidy_limit_test)
     // SUGAR-HALVING
     // BTC: (was 2099999997690000ULL)
     // oldSugar: was (CAmount{251999999722800000})
+    // 108356870917324800 - total supply in theory
+    // 108356870904710400 - total supply in actual
+    //           12614400 - difference
     BOOST_CHECK_EQUAL(nSum, 108356870904710400ULL);
 }
 
