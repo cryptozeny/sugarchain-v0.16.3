@@ -47,7 +47,7 @@ make check -j$(nproc)
 ## MISC
  * update binary docs using help2man `.1` files
 ```bash
-./contrib/devtools/gen-manpages.sh
+make -j$(nproc) && ./contrib/devtools/gen-manpages.sh
 ```
 
 ## Unit Test
