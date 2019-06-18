@@ -436,7 +436,7 @@ BOOST_AUTO_TEST_CASE(caddrinfo_get_tried_bucket)
     // END - DEBUG
 
     // BEGIN - ADDITIONAL CHECK: BTC
-    CAddress addr1_BTC = CAddress(ResolveService("250.1.1.1", 8333), NODE_NONE);
+    CAddress addr1_BTC = CAddress(ResolveService("250.1.1.1", 8333), NODE_NONE); // BTC original
     CAddress addr2_BTC = CAddress(ResolveService("250.1.1.1", 9999), NODE_NONE);
     CNetAddr source1_BTC = ResolveIP("250.1.1.1");
     CAddrInfo info1_BTC = CAddrInfo(addr1_BTC, source1_BTC);
