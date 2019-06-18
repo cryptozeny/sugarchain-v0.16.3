@@ -232,7 +232,7 @@ public:
         pchMessageStart[1] = 0xeb;
         pchMessageStart[2] = 0x4b;
         pchMessageStart[3] = 0x9d;
-        nDefaultPort = 7979;
+        nDefaultPort = 34230;
         nPruneAfterHeight = 100000;
 
         // nTime: date -d '2019-04-04 00:00:00 UTC' +%s = 1554336000 // MAINNET=+0 = 1554336000
