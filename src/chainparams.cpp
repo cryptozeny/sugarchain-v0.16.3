@@ -558,7 +558,7 @@ public:
         pchMessageStart[1] = 0xfb;
         pchMessageStart[2] = 0x5b;
         pchMessageStart[3] = 0xad;
-        nDefaultPort = 17799;
+        nDefaultPort = 45340;
         nPruneAfterHeight = 1000;
 
         // nTime: date -d '2019-04-04 00:00:00 UTC' +%s = 1554336000 // REGTEST=+2 = 1554336002
