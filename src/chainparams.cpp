@@ -403,7 +403,7 @@ public:
         pchMessageStart[1] = 0x11;
         pchMessageStart[2] = 0x90;
         pchMessageStart[3] = 0x70;
-        nDefaultPort = 17979;
+        nDefaultPort = 44230;
         nPruneAfterHeight = 1000;
 
         // nTime: date -d '2019-04-04 00:00:00 UTC' +%s = 1554336000 // TESTNET=+1 = 1554336001
