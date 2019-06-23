@@ -426,7 +426,7 @@ public:
         vSeeds.clear();
         // TODO.SUGAR - seeder
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.emplace_back("seed-test.sugarchain.cryptozeny.com"); // test
+        vSeeds.emplace_back("seed-test.sugarchain.org"); // test
         vSeeds.emplace_back("dnsseed.sugarchain.ml"); // test
         // vSeeds.emplace_back("testnet-seed.bitcoin.jonasschnelli.ch");
         // vSeeds.emplace_back("seed.tbtc.petertodd.org");
