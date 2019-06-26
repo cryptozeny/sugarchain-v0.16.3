@@ -23,9 +23,9 @@ Sugarchain's first node software is called `Yemekawa (夢川)`. It can be transl
 It is exactly same as the dependencies of `BTC v0.16.3`. It is not necessary if you already have.
 
 ```bash
-sudo add-apt-repository ppa:bitcoin/bitcoin && \
+sudo add-apt-repository -y ppa:bitcoin/bitcoin && \
 sudo apt-get update && \
-sudo apt-get install \
+sudo apt-get install -y \
 software-properties-common libdb4.8-dev libdb4.8++-dev \
 build-essential libtool autotools-dev automake pkg-config \
 libssl-dev libevent-dev bsdmainutils libboost-all-dev \
