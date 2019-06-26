@@ -111,7 +111,6 @@ Release process using GITIAN
 
 https://gist.github.com/cryptozeny/3501c77750541208b9dd1a9e9719fc53
 
- * Every Sugarchain Yumekawa developers should do following this GITIAN release process. This is the safest method to release.
- * Do not trust created binaries by any others, and please use released by GITIAN and verify the PGP signatures of the Sugarchain Yumekawa developers.
- * Use GITIAN release, or compile it yourself on your own machine.
+ * Every Sugarchain Yumekawa developers should do following GITIAN release process. It's the safest way to distribute binaries to people.
+ * Please use GITIAN release with checking PGP signature, or compile it yourself on your own machine.
  
