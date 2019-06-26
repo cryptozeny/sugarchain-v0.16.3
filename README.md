@@ -77,6 +77,8 @@ The options `-rpcuser` and `-rpcpassword` can be freely choose. If you need the 
  * Testnet [debug mode for PoW]
  > ./src/qt/sugarchain-qt -testnet -server=1 -rpcuser=rpcuser -rpcpassword=rpcpassword -addnode=explorer-testnet.cryptozeny.com -debug=pow -printtoconsole
 
+ * Reference https://en.bitcoin.it/wiki/Running_Bitcoin
+
 ## CLI
  * Testnet
  > ./src/sugarchain-cli -testnet -rpcuser=rpcuser -rpcpassword=rpcpassword getblockcount
