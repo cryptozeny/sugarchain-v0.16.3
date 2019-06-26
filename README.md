@@ -30,10 +30,10 @@ information or see https://opensource.org/licenses/MIT.
 - Copyright (c) 2016-2018 The Zcash developers - DigiShieldZEC
 - Copyright (c) 2018-2019 The Sugarchain developers
 
-Depends on BTC
+Depends on Bitcoin Core
 --------------
 
-It is exactly same as the dependencies of `BTC v0.16.3`. It is not necessary if you already have.
+It is exactly same as the dependencies of `Bitcoin Core v0.16.3`. It is not necessary if you already have.
 
 ```bash
 sudo add-apt-repository -y ppa:bitcoin/bitcoin && \
