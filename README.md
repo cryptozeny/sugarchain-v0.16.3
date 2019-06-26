@@ -33,7 +33,7 @@ information or see https://opensource.org/licenses/MIT.
 Depends on Bitcoin Core
 --------------
 
-It is exactly same as the dependencies of `Bitcoin Core v0.16.3`. It is not necessary if you already have.
+Exactly the same as dependencies of `Bitcoin Core v0.16.3`.
 
 ```bash
 sudo add-apt-repository -y ppa:bitcoin/bitcoin && \
@@ -50,6 +50,8 @@ protobuf-compiler libqrencode-dev help2man
 Build
 -----
 
+ * Make
+
 ```bash
 git clone git@github.com:cryptozeny/sugarchain-v0.16.3.git && \
 cd sugarchain-v0.16.3 && \
@@ -59,7 +61,8 @@ make -j$(nproc) && \
 make check -j$(nproc)
 ```
 
- * update binary docs using help2man `.1` files
+ * After make, update binary docs (manpages) using help2man `.1` files
+
 ```bash
 make -j$(nproc) && ./contrib/devtools/gen-manpages.sh
 ```
@@ -87,7 +90,7 @@ Every Yumekawa developers should check this unit test. Some updates may break th
 Run
 ---
 
-The options `-rpcuser` and `-rpcpassword` can be freely choose. If you need the file `debug.log`, then drop the `-printtoconsole` out. `server=1` needed by RPC servers or cpuminer(solo-mining).
+The options `-rpcuser` and `-rpcpassword` can be freely choose. If you need the file `debug.log`, then drop the `-printtoconsole` out. `server=1` needed by RPC servers or cpuminer (when solo-mining).
 
  * Testnet [debug mode]
  > ./src/qt/sugarchain-qt -testnet -server=1 -rpcuser=rpcuser -rpcpassword=rpcpassword -addnode=explorer-testnet.cryptozeny.com -printtoconsole
@@ -110,3 +113,5 @@ https://gist.github.com/cryptozeny/3501c77750541208b9dd1a9e9719fc53
 
  * Every Sugarchain Yumekawa developers should do following this GITIAN release process. This is the safest method to release.
  * Do not trust created binaries by any others, and please use released by GITIAN and verify the PGP signatures of the Sugarchain Yumekawa developers.
+ * Use GITIAN release, or compile it yourself on your own machine.
+ 
