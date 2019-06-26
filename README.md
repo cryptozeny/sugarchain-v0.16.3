@@ -6,9 +6,9 @@ Sugarchain Yumekawa
 What is Sugarchain?
 -------------------
 
-Sugarchain is a PoW blockchain for ultra-fast transactions (5 seconds block time) and fair distribution (CPU mining only - Yespower 1.0). It is based on Bitcoin Core.
- - one-CPU-one-vote by Satoshi Nakamoto
- - fuck you NVIDIA by Linus Torvalds
+Sugarchain is a PoW blockchain for ultra-fast transactions (5 seconds block time) and fair distribution (CPU mining only by Yespower 1.0.0). It is based on Bitcoin Core.
+ - `one-CPU-one-vote` by Satoshi Nakamoto
+ - `fuck you NVIDIA` by Linus Torvalds
  - the world's fastest PoW blockchain (2019-06-26)
 
 The meaning of Yumekawa
