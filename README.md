@@ -6,7 +6,7 @@ Sugarchain Yumekawa
 What is Sugarchain?
 -------------------
 
-Sugarchain is a PoW blockchain for ultra-fast transactions (5 seconds block time) and fair distribution (CPU mining only by Yespower 1.0.0). It is based on Bitcoin Core.
+Sugarchain is a PoW blockchain for ultra speed transaction (5 seconds block time) and fair distribution (CPU mining only by Yespower 1.0.0).
  - `one-CPU-one-vote` by Satoshi Nakamoto
  - `fuck you NVIDIA` by Linus Torvalds
  - the world's fastest PoW blockchain (2019-06-26)
@@ -61,7 +61,7 @@ make -j$(nproc) && \
 make check -j$(nproc)
 ```
 
- * After make, update binary docs (manpages) using help2man `.1` files
+ * (optional) After make, update binary docs (manpages) using help2man `.1` files
 
 ```bash
 make -j$(nproc) && ./contrib/devtools/gen-manpages.sh
@@ -77,12 +77,12 @@ Every Yumekawa developers should check this unit test. Some updates may break th
  ./src/test/test_sugarchain test_bitcoin --log_level=test_suite
  ```
  
- * Test Partially: ie `blockencodings_tests`
+ * (optional) Test Partially: ie `blockencodings_tests`
  ```bash
  ./src/test/test_sugarchain test_bitcoin --log_level=test_suite --run_test=blockencodings_tests
  ```
  
- * Test QT (GUI)
+ * (optional) Test QT (GUI)
  ```bash
  ./src/qt/test/test_sugarchain-qt
  ```
@@ -93,10 +93,10 @@ Run
 The options `-rpcuser` and `-rpcpassword` can be freely choose. If you need the file `debug.log`, then drop the `-printtoconsole` out. `server=1` needed by RPC servers or cpuminer (when solo-mining).
 
  * Testnet [debug mode]
- > ./src/qt/sugarchain-qt -testnet -server=1 -rpcuser=rpcuser -rpcpassword=rpcpassword -addnode=explorer-testnet.cryptozeny.com -printtoconsole
+ > ./src/qt/sugarchain-qt -testnet -server=1 -rpcuser=rpcuser -rpcpassword=rpcpassword -printtoconsole
 
  * Testnet [debug mode for PoW]
- > ./src/qt/sugarchain-qt -testnet -server=1 -rpcuser=rpcuser -rpcpassword=rpcpassword -addnode=explorer-testnet.cryptozeny.com -debug=pow -printtoconsole
+ > ./src/qt/sugarchain-qt -testnet -server=1 -rpcuser=rpcuser -rpcpassword=rpcpassword -debug=pow -printtoconsole
 
  * Reference https://en.bitcoin.it/wiki/Running_Bitcoin
 
