@@ -3,35 +3,36 @@ Sugarchain Yumekawa
 
 [![Build Status](https://travis-ci.com/cryptozeny/sugarchain-v0.16.3.svg?token=KrYycpAcc7g95pAVRykP&branch=master-v0.16.3)](https://travis-ci.com/cryptozeny/sugarchain-v0.16.3)
 
------
+What is Sugarchain?
+-------------------
 
-## What is Sugarchain?
 Sugarchain is a PoW blockchain for ultra-fast transactions (5 seconds block time) and fair distribution (CPU mining only - Yespower 1.0). It is based on Bitcoin Core.
  - one-CPU-one-vote by Satoshi Nakamoto
  - fuck you NVIDIA by Linus Torvalds
  - the world's fastest PoW blockchain (2019-06-26)
 
-## The meaning of Yumekawa
+The meaning of Yumekawa
+-----------------------
+
 Sugarchain's first node software is called `Yemekawa (夢川)`. It can be translated in some ways.
  - "Yume (夢)" means dream and "Kawa (川)" means river. So its `Dream River` in japanese.
  - The second letter "Kawa" stands for "Kawaii (可愛い)". In this case the meaning is `Dreamy Cute`.
  - Also Yumekawa is replaces the word `Core` (ie: Bitcoin Core). It sounds a bit centralized and we don't want such [Elitism](https://en.wikipedia.org/wiki/Elitism). In this term we are Yumekawa developers, but not ~~Core developers~~.
 
------
+License
+-------
 
-## License
 Sugarchain Yumekawa is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
-
 - Copyright (c) 2009-2010 Satoshi Nakamoto
 - Copyright (c) 2009-2018 The Bitcoin Core developers
 - Copyright (c) 2013-2018 Alexander Peslyak - Yespower 1.0.0
 - Copyright (c) 2016-2018 The Zcash developers - DigiShieldZEC
 - Copyright (c) 2018-2019 The Sugarchain developers
 
------
+Depends on BTC
+--------------
 
-## Depends on BTC
 It is exactly same as the dependencies of `BTC v0.16.3`. It is not necessary if you already have.
 
 ```bash
@@ -46,7 +47,9 @@ libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev \
 protobuf-compiler libqrencode-dev help2man
 ```
 
-## Build
+Build
+-----
+
 ```bash
 git clone git@github.com:cryptozeny/sugarchain-v0.16.3.git && \
 cd sugarchain-v0.16.3 && \
@@ -56,13 +59,14 @@ make -j$(nproc) && \
 make check -j$(nproc)
 ```
 
-## MISC
  * update binary docs using help2man `.1` files
 ```bash
 make -j$(nproc) && ./contrib/devtools/gen-manpages.sh
 ```
 
-## Unit Test
+Unit Test
+---------
+
 Every Yumekawa developers should check this unit test. Some updates may break this tests sometimes.
 
  * Test All
@@ -80,7 +84,9 @@ Every Yumekawa developers should check this unit test. Some updates may break th
  ./src/qt/test/test_sugarchain-qt
  ```
 
-## Run
+Run
+---
+
 The options `-rpcuser` and `-rpcpassword` can be freely choose. If you need the file `debug.log`, then drop the `-printtoconsole` out. `server=1` needed by RPC servers or cpuminer(solo-mining).
 
  * Testnet [debug mode]
@@ -91,11 +97,14 @@ The options `-rpcuser` and `-rpcpassword` can be freely choose. If you need the 
 
  * Reference https://en.bitcoin.it/wiki/Running_Bitcoin
 
-## CLI
+CLI
+---
+
  * Testnet
  > ./src/sugarchain-cli -testnet -rpcuser=rpcuser -rpcpassword=rpcpassword getblockcount
 
-## Release process using GITIAN
+Release process using GITIAN
+----------------------------
 
 https://gist.github.com/cryptozeny/3501c77750541208b9dd1a9e9719fc53
 
