@@ -3,19 +3,31 @@ Sugarchain Yumekawa
 
 [![Build Status](https://travis-ci.com/cryptozeny/sugarchain-v0.16.3.svg?token=KrYycpAcc7g95pAVRykP&branch=master-v0.16.3)](https://travis-ci.com/cryptozeny/sugarchain-v0.16.3)
 
- - Copyright (c) 2009-2010 Satoshi Nakamoto
- - Copyright (c) 2009-2018 The Bitcoin Core developers
- - Copyright (c) 2013-2018 Alexander Peslyak - Yespower 1.0.0
- - Copyright (c) 2016-2018 The Zcash developers - DigiShieldZEC
- - Copyright (c) 2018-2019 The Sugarchain developers
-
 -----
+
+## What is Sugarchain?
+Sugarchain is a PoW blockchain for ultra-fast transactions (5 seconds block time) and fair distribution (CPU mining only - Yespower 1.0). It is based on Bitcoin Core.
+ - one-CPU-one-vote by Satoshi Nakamoto
+ - fuck you NVIDIA by Linus Torvalds
+ - the world's fastest PoW blockchain (2019-06-26)
 
 ## The meaning of Yumekawa
 Sugarchain's first node software is called `Yemekawa (夢川)`. It can be translated in some ways.
  - "Yume (夢)" means dream and "Kawa (川)" means river. So its `Dream River` in japanese.
  - The second letter "Kawa" stands for "Kawaii (可愛い)". In this case the meaning is `Dreamy Cute`.
  - Also Yumekawa is replaces the word `Core` (ie: Bitcoin Core). It sounds a bit centralized and we don't want such [Elitism](https://en.wikipedia.org/wiki/Elitism). In this term we are Yumekawa developers, but not ~~Core developers~~.
+
+-----
+
+## License
+Sugarchain Yumekawa is released under the terms of the MIT license. See [COPYING](COPYING) for more
+information or see https://opensource.org/licenses/MIT.
+
+- Copyright (c) 2009-2010 Satoshi Nakamoto
+- Copyright (c) 2009-2018 The Bitcoin Core developers
+- Copyright (c) 2013-2018 Alexander Peslyak - Yespower 1.0.0
+- Copyright (c) 2016-2018 The Zcash developers - DigiShieldZEC
+- Copyright (c) 2018-2019 The Sugarchain developers
 
 -----
 
