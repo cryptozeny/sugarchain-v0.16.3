@@ -8,7 +8,7 @@ What is Sugarchain?
 
 Sugarchain is a PoW blockchain for ultra speed transaction (5 seconds block time) and fair distribution (CPU mining only by Yespower 1.0.0).
  - `one-CPU-one-vote` by Satoshi Nakamoto
- - `fuck you NVIDIA` by Linus Torvalds
+ - `NVIDIA, fuck you` by Linus Torvalds
  - the world's fastest PoW blockchain (2019-06-26)
 
 The meaning of Yumekawa
