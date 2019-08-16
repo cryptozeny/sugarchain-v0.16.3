@@ -397,7 +397,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00"); // TODO.SUGAR
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("c182ef3f7bb815dbf3c80dd4fe922b17c6eaffabf226a4e5fa9789c80f3e514c"); // genesis
+        consensus.defaultAssumeValid = uint256S("e0e0e42e493ba7b15f7b0fe1a7e66f73b7fd8b3e6e6a7b0e821a6b95040d3826"); // genesis
 
         pchMessageStart[0] = 0xb0;
         pchMessageStart[1] = 0x11;
@@ -408,18 +408,18 @@ public:
 
         // nTime: date -d '2019-08-16 00:00:01 UTC' +%s = 1565913601
         // genesisReward: pow(2,32) / COIN = 42.94967296 (was 50)
-        genesis = CreateGenesisBlock(1565913601, 193, 0x1f3fffff, 1, 42.94967296 * COIN);
+        genesis = CreateGenesisBlock(1565913601, 490, 0x1f3fffff, 1, 42.94967296 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
         // DEBUG - SUGAR
-        // printf("***\n");
-        // printf("genesis.GetPoWHash.TESTNET = %s\n", genesis.GetPoWHash().ToString().c_str());
-        // printf("genesis.GetHash.TESTNET = %s\n", genesis.GetHash().ToString().c_str());
-        // printf("genesis.hashMerkleRoot.TESTNET %s\n",genesis.hashMerkleRoot.ToString().c_str());
-        // printf("***\n");
+        printf("***\n");
+        printf("genesis.GetPoWHash.TESTNET = %s\n", genesis.GetPoWHash().ToString().c_str());
+        printf("genesis.GetHash.TESTNET = %s\n", genesis.GetHash().ToString().c_str());
+        printf("genesis.hashMerkleRoot.TESTNET %s\n",genesis.hashMerkleRoot.ToString().c_str());
+        printf("***\n");
 
-        assert(genesis.GetPoWHash() == uint256S("000b5d2ef233e837b7a36b508138bd4e76e121e16dd566abd251cbfac6120e10")); // genesis
-        assert(consensus.hashGenesisBlock == uint256S("c182ef3f7bb815dbf3c80dd4fe922b17c6eaffabf226a4e5fa9789c80f3e514c")); // genesis
+        assert(genesis.GetPoWHash() == uint256S("0032f49a73e00fc182e08d5ede75c1418c7833092d663e43a5463c1dbd096f28")); // genesis
+        assert(consensus.hashGenesisBlock == uint256S("e0e0e42e493ba7b15f7b0fe1a7e66f73b7fd8b3e6e6a7b0e821a6b95040d3826")); // genesis
         assert(genesis.hashMerkleRoot == uint256S("7677ce2a579cb0411d1c9e6b1e9072b8f537f1e59cb387dacac2daac56e150b0"));
 
         vFixedSeeds.clear();
@@ -445,7 +445,7 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("c182ef3f7bb815dbf3c80dd4fe922b17c6eaffabf226a4e5fa9789c80f3e514c")}, // genesis
+                {0, uint256S("e0e0e42e493ba7b15f7b0fe1a7e66f73b7fd8b3e6e6a7b0e821a6b95040d3826")}, // genesis
             }
         };
 
