@@ -38,9 +38,9 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 
     // BEGIN - DEBUG - SUGAR
 
-    /*
+    // /*
     // MAINNET
-    if (genesis.nTime == 1554336000) {
+    if (genesis.nTime == 1565913600) {
       printf("\n*** BEGIN - DEBUG: MAINNET\n");
       printf("nTime = %u\n", nTime);
       printf("nNonce = %u\n", nNonce);
@@ -50,7 +50,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
       printf("COIN = %ld\n", COIN);
       printf("*** END - DEBUG\n");
     }
-    */
+    // */
 
     /*
     // TESTNET
