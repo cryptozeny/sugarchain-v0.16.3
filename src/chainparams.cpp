@@ -406,9 +406,9 @@ public:
         nDefaultPort = 44230;
         nPruneAfterHeight = 1000;
 
-        // nTime: date -d '2019-04-04 00:00:00 UTC' +%s = 1554336000 // TESTNET=+1 = 1554336001
+        // nTime: date -d '2019-08-16 00:00:01 UTC' +%s = 1565913601
         // genesisReward: pow(2,32) / COIN = 42.94967296 (was 50)
-        genesis = CreateGenesisBlock(1554336001, 201, 0x1f3fffff, 1, 42.94967296 * COIN);
+        genesis = CreateGenesisBlock(1565913601, 193, 0x1f3fffff, 1, 42.94967296 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
         // DEBUG - SUGAR
