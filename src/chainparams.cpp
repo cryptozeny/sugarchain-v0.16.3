@@ -237,15 +237,15 @@ public:
 
         // nTime: date -d '2019-08-16 00:00:00 UTC' +%s = 1565913600
         // genesisReward: pow(2,32) / COIN = 42.94967296 (was 50)
-        genesis = CreateGenesisBlock(1565913600, 258, 0x1f3fffff, 1, 42.94967296 * COIN);
+        genesis = CreateGenesisBlock(1565913600, 1211, 0x1f3fffff, 1, 42.94967296 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
         // DEBUG - SUGAR
-        // printf("***\n");
-        // printf("genesis.GetPoWHash.MAIN = %s\n", genesis.GetPoWHash().ToString().c_str());
-        // printf("genesis.GetHash.MAIN = %s\n", genesis.GetHash().ToString().c_str());
-        // printf("genesis.hashMerkleRoot.MAIN %s\n",genesis.hashMerkleRoot.ToString().c_str());
-        // printf("***\n");
+        printf("***\n");
+        printf("genesis.GetPoWHash.MAIN = %s\n", genesis.GetPoWHash().ToString().c_str());
+        printf("genesis.GetHash.MAIN = %s\n", genesis.GetHash().ToString().c_str());
+        printf("genesis.hashMerkleRoot.MAIN %s\n",genesis.hashMerkleRoot.ToString().c_str());
+        printf("***\n");
 
         assert(genesis.GetPoWHash() == uint256S("0033d1bd1d8c348096621f6f86d6ce2800db8a2d7d740c52901c77aaa502c9b4")); // genesis
         assert(consensus.hashGenesisBlock == uint256S("bfa886e306f2ac444b771beef04e789c6c2345ffb2a68231bbd64ffa4953c208")); // genesis
