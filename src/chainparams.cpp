@@ -397,7 +397,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00"); // TODO.SUGAR
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("e15ac61305c307e84db7906afef45a1acf1148b8c1f649645132ff66af7a760d"); // genesis
+        consensus.defaultAssumeValid = uint256S("c182ef3f7bb815dbf3c80dd4fe922b17c6eaffabf226a4e5fa9789c80f3e514c"); // genesis
 
         pchMessageStart[0] = 0xb0;
         pchMessageStart[1] = 0x11;
@@ -412,14 +412,14 @@ public:
         consensus.hashGenesisBlock = genesis.GetHash();
 
         // DEBUG - SUGAR
-        // printf("***\n");
-        // printf("genesis.GetPoWHash.TESTNET = %s\n", genesis.GetPoWHash().ToString().c_str());
-        // printf("genesis.GetHash.TESTNET = %s\n", genesis.GetHash().ToString().c_str());
-        // printf("genesis.hashMerkleRoot.TESTNET %s\n",genesis.hashMerkleRoot.ToString().c_str());
-        // printf("***\n");
+        printf("***\n");
+        printf("genesis.GetPoWHash.TESTNET = %s\n", genesis.GetPoWHash().ToString().c_str());
+        printf("genesis.GetHash.TESTNET = %s\n", genesis.GetHash().ToString().c_str());
+        printf("genesis.hashMerkleRoot.TESTNET %s\n",genesis.hashMerkleRoot.ToString().c_str());
+        printf("***\n");
 
         assert(genesis.GetPoWHash() == uint256S("000b5d2ef233e837b7a36b508138bd4e76e121e16dd566abd251cbfac6120e10")); // genesis
-        assert(consensus.hashGenesisBlock == uint256S("e15ac61305c307e84db7906afef45a1acf1148b8c1f649645132ff66af7a760d")); // genesis
+        assert(consensus.hashGenesisBlock == uint256S("c182ef3f7bb815dbf3c80dd4fe922b17c6eaffabf226a4e5fa9789c80f3e514c")); // genesis
         assert(genesis.hashMerkleRoot == uint256S("7677ce2a579cb0411d1c9e6b1e9072b8f537f1e59cb387dacac2daac56e150b0"));
 
         vFixedSeeds.clear();
@@ -445,7 +445,7 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("e15ac61305c307e84db7906afef45a1acf1148b8c1f649645132ff66af7a760d")}, // genesis
+                {0, uint256S("c182ef3f7bb815dbf3c80dd4fe922b17c6eaffabf226a4e5fa9789c80f3e514c")}, // genesis
             }
         };
 
