@@ -549,7 +549,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("6d5b94f4b7fbdcc8a70f81257bdadf8bd65efa8e26761fd9552b42dbeae69c09"); // genesis
+        consensus.defaultAssumeValid = uint256S("d567a9c891c7a47e6dd03f8006cb65b0d6406b5dc7b2c86d7a904815c394e1f1"); // genesis
 
         pchMessageStart[0] = 0xaf;
         pchMessageStart[1] = 0xfb;
@@ -560,19 +560,19 @@ public:
 
         // nTime: date -d '2019-08-16 00:00:02 UTC' +%s = 1565913602
         // genesisReward: pow(2,32) / COIN = 42.94967296 (was 50)
-        genesis = CreateGenesisBlock(1565913602, 51, 0x200f0f0f, 1, 42.94967296 * COIN);
+        genesis = CreateGenesisBlock(1565913602, 9, 0x200f0f0f, 1, 42.94967296 * COIN);
 
         consensus.hashGenesisBlock = genesis.GetHash();
 
         // DEBUG - SUGAR
-        // printf("\n*** BEGIN - DEBUG: REGTEST\n");
-        // printf("genesis.GetPoWHash.REGTEST = %s\n", genesis.GetPoWHash().ToString().c_str());
-        // printf("genesis.GetHash.REGTEST = %s\n", genesis.GetHash().ToString().c_str());
-        // printf("genesis.hashMerkleRoot.REGTEST %s\n",genesis.hashMerkleRoot.ToString().c_str());
-        // printf("*** END - DEBUG\n");
+        printf("\n*** BEGIN - DEBUG: REGTEST\n");
+        printf("genesis.GetPoWHash.REGTEST = %s\n", genesis.GetPoWHash().ToString().c_str());
+        printf("genesis.GetHash.REGTEST = %s\n", genesis.GetHash().ToString().c_str());
+        printf("genesis.hashMerkleRoot.REGTEST %s\n",genesis.hashMerkleRoot.ToString().c_str());
+        printf("*** END - DEBUG\n");
 
-        assert(genesis.GetPoWHash() == uint256S("01e28e6cbac36e8a071a9db17d33740472cfe1d30feb8b470da6263ad1e7ec3f")); // genesis
-        assert(consensus.hashGenesisBlock == uint256S("6d5b94f4b7fbdcc8a70f81257bdadf8bd65efa8e26761fd9552b42dbeae69c09")); // genesis
+        assert(genesis.GetPoWHash() == uint256S("0d144c097fa9c4cf7482fde74f95da8045b516490741af0ee9b1ac1f1dd6c914")); // genesis
+        assert(consensus.hashGenesisBlock == uint256S("d567a9c891c7a47e6dd03f8006cb65b0d6406b5dc7b2c86d7a904815c394e1f1")); // genesis
         assert(genesis.hashMerkleRoot == uint256S("7677ce2a579cb0411d1c9e6b1e9072b8f537f1e59cb387dacac2daac56e150b0"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
@@ -584,7 +584,7 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("6d5b94f4b7fbdcc8a70f81257bdadf8bd65efa8e26761fd9552b42dbeae69c09")}, // genesis
+                {0, uint256S("d567a9c891c7a47e6dd03f8006cb65b0d6406b5dc7b2c86d7a904815c394e1f1")}, // genesis
             }
         };
 
