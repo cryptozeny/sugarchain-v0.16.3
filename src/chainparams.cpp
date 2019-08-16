@@ -221,7 +221,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00"); // TODO.SUGAR
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("bfa886e306f2ac444b771beef04e789c6c2345ffb2a68231bbd64ffa4953c208"); // genesis
+        consensus.defaultAssumeValid = uint256S("b8a83b1f579c06911c120932f06f0eabb857ef7f3366b3096b589769ef8d3e14"); // genesis
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -248,7 +248,7 @@ public:
         printf("***\n");
 
         assert(genesis.GetPoWHash() == uint256S("0033d1bd1d8c348096621f6f86d6ce2800db8a2d7d740c52901c77aaa502c9b4")); // genesis
-        assert(consensus.hashGenesisBlock == uint256S("bfa886e306f2ac444b771beef04e789c6c2345ffb2a68231bbd64ffa4953c208")); // genesis
+        assert(consensus.hashGenesisBlock == uint256S("b8a83b1f579c06911c120932f06f0eabb857ef7f3366b3096b589769ef8d3e14")); // genesis
         assert(genesis.hashMerkleRoot == uint256S("7677ce2a579cb0411d1c9e6b1e9072b8f537f1e59cb387dacac2daac56e150b0"));
 
         // TODO.SUGAR - seeder
@@ -280,7 +280,7 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("bfa886e306f2ac444b771beef04e789c6c2345ffb2a68231bbd64ffa4953c208")}, // genesis
+                {0, uint256S("b8a83b1f579c06911c120932f06f0eabb857ef7f3366b3096b589769ef8d3e14")}, // genesis
             }
         };
 
