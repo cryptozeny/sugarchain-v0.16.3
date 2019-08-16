@@ -249,7 +249,7 @@ public:
 
         assert(genesis.GetPoWHash() == uint256S("002693799fdf94d1522a127e11903d5bc3a14edf866d00a5703e59159d644437")); // genesis
         assert(consensus.hashGenesisBlock == uint256S("002d09f7643d9a1219e76765b4fa60afa308db87bf9831fded4632c4fba68f9d")); // genesis
-        assert(genesis.hashMerkleRoot == uint256S("4059da1dac0fe2761276837e64895d2ee55330558e58d29d7369499b31030102"));
+        assert(genesis.hashMerkleRoot == uint256S("7677ce2a579cb0411d1c9e6b1e9072b8f537f1e59cb387dacac2daac56e150b0"));
 
         // TODO.SUGAR - seeder
         // Note that of those which support the service bits prefix, most only support a subset of
@@ -420,7 +420,7 @@ public:
 
         assert(genesis.GetPoWHash() == uint256S("001f6ae059f121fee44269a7ff224c9672b4e7eeda95ab96356ccfdf39a70132")); // genesis
         assert(consensus.hashGenesisBlock == uint256S("e15ac61305c307e84db7906afef45a1acf1148b8c1f649645132ff66af7a760d")); // genesis
-        assert(genesis.hashMerkleRoot == uint256S("4059da1dac0fe2761276837e64895d2ee55330558e58d29d7369499b31030102"));
+        assert(genesis.hashMerkleRoot == uint256S("7677ce2a579cb0411d1c9e6b1e9072b8f537f1e59cb387dacac2daac56e150b0"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -573,7 +573,7 @@ public:
 
         assert(genesis.GetPoWHash() == uint256S("058dbd6e52e954425b873335939e5394228bf968c0071db2327579d6f0557c7a")); // genesis
         assert(consensus.hashGenesisBlock == uint256S("7c9807c6fa1ceae35770a6f41fd18a867dbd06c80af40446fc188ab50f0dbdcf")); // genesis
-        assert(genesis.hashMerkleRoot == uint256S("4059da1dac0fe2761276837e64895d2ee55330558e58d29d7369499b31030102"));
+        assert(genesis.hashMerkleRoot == uint256S("7677ce2a579cb0411d1c9e6b1e9072b8f537f1e59cb387dacac2daac56e150b0"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
