@@ -38,7 +38,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 
     // BEGIN - DEBUG - SUGAR
 
-    // /*
+    /*
     // MAINNET
     if (genesis.nTime == 1565913600) {
       printf("\n*** BEGIN - DEBUG: MAINNET\n");
@@ -50,9 +50,9 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
       printf("COIN = %ld\n", COIN);
       printf("*** END - DEBUG\n");
     }
-    // */
+    */
 
-    // /*
+    /*
     // TESTNET
     if (genesis.nTime == 1565913601) {
       printf("\n*** BEGIN - DEBUG: TESTNET\n");
@@ -64,9 +64,9 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
       printf("COIN = %ld\n", COIN);
       printf("*** END - DEBUG\n");
     }
-    // */
+    */
 
-    // /*
+    /*
     // REGTEST
     if (genesis.nTime == 1565913602) {
       printf("\n*** BEGIN - DEBUG: REGTEST\n");
@@ -78,7 +78,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
       printf("COIN = %ld\n", COIN);
       printf("*** END - DEBUG\n");
     }
-    // */
+    */
 
     // END - DEBUG
 
@@ -241,11 +241,11 @@ public:
         consensus.hashGenesisBlock = genesis.GetHash();
 
         // DEBUG - SUGAR
-        printf("***\n");
-        printf("genesis.GetPoWHash.MAIN = %s\n", genesis.GetPoWHash().ToString().c_str());
-        printf("genesis.GetHash.MAIN = %s\n", genesis.GetHash().ToString().c_str());
-        printf("genesis.hashMerkleRoot.MAIN %s\n",genesis.hashMerkleRoot.ToString().c_str());
-        printf("***\n");
+        // printf("***\n");
+        // printf("genesis.GetPoWHash.MAIN = %s\n", genesis.GetPoWHash().ToString().c_str());
+        // printf("genesis.GetHash.MAIN = %s\n", genesis.GetHash().ToString().c_str());
+        // printf("genesis.hashMerkleRoot.MAIN %s\n",genesis.hashMerkleRoot.ToString().c_str());
+        // printf("***\n");
 
         assert(genesis.GetPoWHash() == uint256S("002d09f7643d9a1219e76765b4fa60afa308db87bf9831fded4632c4fba68f9d")); // genesis
         assert(consensus.hashGenesisBlock == uint256S("bfa886e306f2ac444b771beef04e789c6c2345ffb2a68231bbd64ffa4953c208")); // genesis
@@ -412,11 +412,11 @@ public:
         consensus.hashGenesisBlock = genesis.GetHash();
 
         // DEBUG - SUGAR
-        printf("***\n");
-        printf("genesis.GetPoWHash.TESTNET = %s\n", genesis.GetPoWHash().ToString().c_str());
-        printf("genesis.GetHash.TESTNET = %s\n", genesis.GetHash().ToString().c_str());
-        printf("genesis.hashMerkleRoot.TESTNET %s\n",genesis.hashMerkleRoot.ToString().c_str());
-        printf("***\n");
+        // printf("***\n");
+        // printf("genesis.GetPoWHash.TESTNET = %s\n", genesis.GetPoWHash().ToString().c_str());
+        // printf("genesis.GetHash.TESTNET = %s\n", genesis.GetHash().ToString().c_str());
+        // printf("genesis.hashMerkleRoot.TESTNET %s\n",genesis.hashMerkleRoot.ToString().c_str());
+        // printf("***\n");
 
         assert(genesis.GetPoWHash() == uint256S("000b5d2ef233e837b7a36b508138bd4e76e121e16dd566abd251cbfac6120e10")); // genesis
         assert(consensus.hashGenesisBlock == uint256S("c182ef3f7bb815dbf3c80dd4fe922b17c6eaffabf226a4e5fa9789c80f3e514c")); // genesis
@@ -565,11 +565,11 @@ public:
         consensus.hashGenesisBlock = genesis.GetHash();
 
         // DEBUG - SUGAR
-        printf("\n*** BEGIN - DEBUG: REGTEST\n");
-        printf("genesis.GetPoWHash.REGTEST = %s\n", genesis.GetPoWHash().ToString().c_str());
-        printf("genesis.GetHash.REGTEST = %s\n", genesis.GetHash().ToString().c_str());
-        printf("genesis.hashMerkleRoot.REGTEST %s\n",genesis.hashMerkleRoot.ToString().c_str());
-        printf("*** END - DEBUG\n");
+        // printf("\n*** BEGIN - DEBUG: REGTEST\n");
+        // printf("genesis.GetPoWHash.REGTEST = %s\n", genesis.GetPoWHash().ToString().c_str());
+        // printf("genesis.GetHash.REGTEST = %s\n", genesis.GetHash().ToString().c_str());
+        // printf("genesis.hashMerkleRoot.REGTEST %s\n",genesis.hashMerkleRoot.ToString().c_str());
+        // printf("*** END - DEBUG\n");
 
         assert(genesis.GetPoWHash() == uint256S("01e28e6cbac36e8a071a9db17d33740472cfe1d30feb8b470da6263ad1e7ec3f")); // genesis
         assert(consensus.hashGenesisBlock == uint256S("6d5b94f4b7fbdcc8a70f81257bdadf8bd65efa8e26761fd9552b42dbeae69c09")); // genesis
