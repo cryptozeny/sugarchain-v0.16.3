@@ -231,7 +231,7 @@ public:
 
         // nTime: date -d '2019-08-16 00:00:00 KST' +%s = 1565881200
         // genesisReward: pow(2,32) / COIN = 42.94967296 (was 50)
-        genesis = CreateGenesisBlock(1565881200, 1211, 0x1f3fffff, 1, 42.94967296 * COIN);
+        genesis = CreateGenesisBlock(1565881200, 247, 0x1f3fffff, 1, 42.94967296 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
         // DEBUG - SUGAR
