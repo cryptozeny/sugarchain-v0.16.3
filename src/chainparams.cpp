@@ -241,7 +241,7 @@ public:
         // printf("genesis.hashMerkleRoot.MAIN %s\n",genesis.hashMerkleRoot.ToString().c_str());
         // printf("***\n");
 
-        assert(genesis.GetPoWHash() == uint256S("0033d1bd1d8c348096621f6f86d6ce2800db8a2d7d740c52901c77aaa502c9b4")); // genesis
+        assert(genesis.GetPoWHash() == uint256S("0031205acedcc69a9c18f79b84790179d68fb90588bedee6587ff701bdde04eb")); // genesis
         assert(consensus.hashGenesisBlock == uint256S("b8a83b1f579c06911c120932f06f0eabb857ef7f3366b3096b589769ef8d3e14")); // genesis
         assert(genesis.hashMerkleRoot == uint256S("7677ce2a579cb0411d1c9e6b1e9072b8f537f1e59cb387dacac2daac56e150b0"));
 
