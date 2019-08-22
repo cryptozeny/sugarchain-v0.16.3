@@ -39,7 +39,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     // BEGIN - DEBUG - SUGAR
 
     // MAINNET
-    // if (genesis.nTime == 1565913600) {
+    // if (genesis.nTime == 1565881200) {
     //   printf("\n*** BEGIN - DEBUG: MAINNET\n");
     //   printf("nTime = %u\n", nTime);
     //   printf("nNonce = %u\n", nNonce);
@@ -229,9 +229,9 @@ public:
         nDefaultPort = 34230;
         nPruneAfterHeight = 100000;
 
-        // nTime: date -d '2019-08-16 00:00:00 UTC' +%s = 1565913600
+        // nTime: date -d '2019-08-16 00:00:00 KST' +%s = 1565881200
         // genesisReward: pow(2,32) / COIN = 42.94967296 (was 50)
-        genesis = CreateGenesisBlock(1565913600, 1211, 0x1f3fffff, 1, 42.94967296 * COIN);
+        genesis = CreateGenesisBlock(1565881200, 1211, 0x1f3fffff, 1, 42.94967296 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
         // DEBUG - SUGAR
