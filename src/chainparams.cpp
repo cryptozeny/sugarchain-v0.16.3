@@ -215,7 +215,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00"); // TODO.SUGAR
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("b8a83b1f579c06911c120932f06f0eabb857ef7f3366b3096b589769ef8d3e14"); // genesis
+        consensus.defaultAssumeValid = uint256S("7d5eaec2dbb75f99feadfa524c78b7cabc1d8c8204f79d4f3a83381b811b0adc"); // genesis
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -235,14 +235,14 @@ public:
         consensus.hashGenesisBlock = genesis.GetHash();
 
         // DEBUG - SUGAR
-        // printf("***\n");
-        // printf("genesis.GetPoWHash.MAIN = %s\n", genesis.GetPoWHash().ToString().c_str());
-        // printf("genesis.GetHash.MAIN = %s\n", genesis.GetHash().ToString().c_str());
-        // printf("genesis.hashMerkleRoot.MAIN %s\n",genesis.hashMerkleRoot.ToString().c_str());
-        // printf("***\n");
+        printf("***\n");
+        printf("genesis.GetPoWHash.MAIN = %s\n", genesis.GetPoWHash().ToString().c_str());
+        printf("genesis.GetHash.MAIN = %s\n", genesis.GetHash().ToString().c_str());
+        printf("genesis.hashMerkleRoot.MAIN %s\n",genesis.hashMerkleRoot.ToString().c_str());
+        printf("***\n");
 
         assert(genesis.GetPoWHash() == uint256S("0031205acedcc69a9c18f79b84790179d68fb90588bedee6587ff701bdde04eb")); // genesis
-        assert(consensus.hashGenesisBlock == uint256S("b8a83b1f579c06911c120932f06f0eabb857ef7f3366b3096b589769ef8d3e14")); // genesis
+        assert(consensus.hashGenesisBlock == uint256S("7d5eaec2dbb75f99feadfa524c78b7cabc1d8c8204f79d4f3a83381b811b0adc")); // genesis
         assert(genesis.hashMerkleRoot == uint256S("7677ce2a579cb0411d1c9e6b1e9072b8f537f1e59cb387dacac2daac56e150b0"));
 
         // TODO.SUGAR - seeder
@@ -274,7 +274,7 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("b8a83b1f579c06911c120932f06f0eabb857ef7f3366b3096b589769ef8d3e14")}, // genesis
+                {0, uint256S("7d5eaec2dbb75f99feadfa524c78b7cabc1d8c8204f79d4f3a83381b811b0adc")}, // genesis
             }
         };
 
