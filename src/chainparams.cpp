@@ -235,11 +235,11 @@ public:
         consensus.hashGenesisBlock = genesis.GetHash();
 
         // DEBUG - SUGAR
-        printf("***\n");
-        printf("genesis.GetPoWHash.MAIN = %s\n", genesis.GetPoWHash().ToString().c_str());
-        printf("genesis.GetHash.MAIN = %s\n", genesis.GetHash().ToString().c_str());
-        printf("genesis.hashMerkleRoot.MAIN %s\n",genesis.hashMerkleRoot.ToString().c_str());
-        printf("***\n");
+        // printf("***\n");
+        // printf("genesis.GetPoWHash.MAIN = %s\n", genesis.GetPoWHash().ToString().c_str());
+        // printf("genesis.GetHash.MAIN = %s\n", genesis.GetHash().ToString().c_str());
+        // printf("genesis.hashMerkleRoot.MAIN %s\n",genesis.hashMerkleRoot.ToString().c_str());
+        // printf("***\n");
 
         assert(genesis.GetPoWHash() == uint256S("0031205acedcc69a9c18f79b84790179d68fb90588bedee6587ff701bdde04eb")); // genesis
         assert(consensus.hashGenesisBlock == uint256S("7d5eaec2dbb75f99feadfa524c78b7cabc1d8c8204f79d4f3a83381b811b0adc")); // genesis
