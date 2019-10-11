@@ -3550,6 +3550,16 @@ bool PeerLogicValidation::SendMessages(CNode* pto, std::atomic<bool>& interruptM
             // the download window should be much larger than the to-be-downloaded set of blocks, so disconnection
             // should only happen during initial block download.
             LogPrintf("Peer=%d is stalling block download, disconnecting\n", pto->GetId());
+
+            // BEGIN: DEBUG - SUGAR - is stalling block download
+            LogPrintf("DEBUG - is stalling block download\n");
+            LogPrintf("  nNow = %d\n", nNow);
+            LogPrintf("  state.nStallingSince = %d\n", state.nStallingSince);
+            LogPrintf("    nDiff = %d\n", nNow - state.nStallingSince);
+            LogPrintf("  BLOCK_STALLING_TIMEOUT = %d\n", BLOCK_STALLING_TIMEOUT);
+            LogPrintf("  nNow - 1000000 * BLOCK_STALLING_TIMEOUT = %d\n", nNow - 1000000 * BLOCK_STALLING_TIMEOUT);
+            // BEGIN: DEBUG - SUGAR - is stalling block download
+
             pto->fDisconnect = true;
             return true;
         }
