@@ -10,16 +10,7 @@
 #include <stdint.h>
 #include <vector>
 
-/*
-FTL
-120x faster than bitcoin
-
-BTC = 70 * 60 = "4200s"
-LTC = 35 * 60 = "2100s" 4x faster but 1/2 times
-SUGAR = 70 * 60 / 60 = "70s" = 120x faster but 1/60 times
-BTC / 60 = (70 * 60) / 60 = 70
-*/
-static const int64_t DEFAULT_MAX_TIME_ADJUSTMENT = 70; // FIXME.SUGAR // FTL
+static const int64_t DEFAULT_MAX_TIME_ADJUSTMENT = 70 * 60;
 
 class CNetAddr;
 
