@@ -3561,7 +3561,34 @@ bool PeerLogicValidation::SendMessages(CNode* pto, std::atomic<bool>& interruptM
         if (state.vBlocksInFlight.size() > 0) {
             QueuedBlock &queuedBlock = state.vBlocksInFlight.front();
             int nOtherPeersWithValidatedDownloads = nPeersWithValidatedDownloads - (state.nBlocksInFlightValidHeaders > 0);
-            if (nNow > state.nDownloadingSince + consensusParams.nPowTargetSpacing * (BLOCK_DOWNLOAD_TIMEOUT_BASE + BLOCK_DOWNLOAD_TIMEOUT_PER_PEER * nOtherPeersWithValidatedDownloads)) {
+
+            // BEGIN: DEBUG - SUGAR - Timeout downloading block
+            // LogPrintf("DEBUG - Timeout downloading block\n");
+            // LogPrintf("    nDiff(orig) = %d\n", nNow - (state.nDownloadingSince + consensusParams.nPowTargetSpacing * (BLOCK_DOWNLOAD_TIMEOUT_BASE + BLOCK_DOWNLOAD_TIMEOUT_PER_PEER * nOtherPeersWithValidatedDownloads)));
+            // LogPrintf("    nDiff(120x) = %d\n", nNow - (state.nDownloadingSince + (consensusParams.nPowTargetSpacing * 120) * (BLOCK_DOWNLOAD_TIMEOUT_BASE + BLOCK_DOWNLOAD_TIMEOUT_PER_PEER * nOtherPeersWithValidatedDownloads)));
+            // END: DEBUG - SUGAR - Timeout downloading block
+
+            // 120x faster than bitcoin
+            // (consensusParams.nPowTargetSpacing * 120) = 600 seconds = 10 minutes (BTC)
+            // if (nNow > state.nDownloadingSince + consensusParams.nPowTargetSpacing * (BLOCK_DOWNLOAD_TIMEOUT_BASE + BLOCK_DOWNLOAD_TIMEOUT_PER_PEER * nOtherPeersWithValidatedDownloads)) {
+            if (nNow > state.nDownloadingSince + (consensusParams.nPowTargetSpacing * 120) * (BLOCK_DOWNLOAD_TIMEOUT_BASE + BLOCK_DOWNLOAD_TIMEOUT_PER_PEER * nOtherPeersWithValidatedDownloads)) {
+
+                // BEGIN: DEBUG - SUGAR - Timeout downloading block
+                // LogPrintf("DEBUG - Timeout downloading block\n");
+                // LogPrintf("  nOtherPeersWithValidatedDownloads = %d\n", nOtherPeersWithValidatedDownloads);
+                // LogPrintf("  nPeersWithValidatedDownloads = %d\n", nPeersWithValidatedDownloads);
+                // LogPrintf("  state.nBlocksInFlightValidHeaders = %d\n", state.nBlocksInFlightValidHeaders);
+                // LogPrintf("  state.vBlocksInFlight.size() = %d\n", state.vBlocksInFlight.size());
+                // LogPrintf("  nNow = %d\n", nNow);
+                // LogPrintf("  nNow > right = %d\n", state.nDownloadingSince + consensusParams.nPowTargetSpacing * (BLOCK_DOWNLOAD_TIMEOUT_BASE + BLOCK_DOWNLOAD_TIMEOUT_PER_PEER * nOtherPeersWithValidatedDownloads));
+                // LogPrintf("    nDiff = %d\n", nNow - (state.nDownloadingSince + consensusParams.nPowTargetSpacing * (BLOCK_DOWNLOAD_TIMEOUT_BASE + BLOCK_DOWNLOAD_TIMEOUT_PER_PEER * nOtherPeersWithValidatedDownloads)));
+                // LogPrintf("  state.nDownloadingSince = %d\n", state.nDownloadingSince);
+                // LogPrintf("  consensusParams.nPowTargetSpacing = %d\n", consensusParams.nPowTargetSpacing);
+                // LogPrintf("  BLOCK_DOWNLOAD_TIMEOUT_BASE = %d\n", BLOCK_DOWNLOAD_TIMEOUT_BASE);
+                // LogPrintf("  BLOCK_DOWNLOAD_TIMEOUT_PER_PEER = %d\n", BLOCK_DOWNLOAD_TIMEOUT_PER_PEER);
+                // LogPrintf("  nOtherPeersWithValidatedDownloads = %d\n", nOtherPeersWithValidatedDownloads);
+                // END: DEBUG - SUGAR - Timeout downloading block
+
                 LogPrintf("Timeout downloading block %s from peer=%d, disconnecting\n", queuedBlock.hash.ToString(), pto->GetId());
                 pto->fDisconnect = true;
                 return true;
