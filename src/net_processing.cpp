@@ -500,6 +500,14 @@ void FindNextBlocksToDownload(NodeId nodeid, unsigned int count, std::vector<con
     int nMaxHeight = std::min<int>(state->pindexBestKnownBlock->nHeight, nWindowEnd + 1);
     NodeId waitingfor = -1;
     while (pindexWalk->nHeight < nMaxHeight) {
+        
+        // BEGIN: DEBUG - SUGAR - BLOCK_DOWNLOAD_WINDOW
+        LogPrintf("DEBUG - BLOCK_DOWNLOAD_WINDOW = %d\n", BLOCK_DOWNLOAD_WINDOW);
+        LogPrintf("  %d = nWindowEnd\n", nWindowEnd);
+        LogPrintf("  %d = Diff\n", nWindowEnd - BLOCK_DOWNLOAD_WINDOW);
+        LogPrintf("  %.3f = Perc\n", ( (float)nWindowEnd - (float)BLOCK_DOWNLOAD_WINDOW ) / (float)BLOCK_DOWNLOAD_WINDOW * 100.0);
+        // END: DEBUG - SUGAR - BLOCK_DOWNLOAD_WINDOW
+        
         // Read up to 128 (or more, if more blocks than that are needed) successors of pindexWalk (towards
         // pindexBestKnownBlock) into vToFetch. We fetch 128, because CBlockIndex::GetAncestor may be as expensive
         // as iterating over ~100 CBlockIndex* entries anyway.
