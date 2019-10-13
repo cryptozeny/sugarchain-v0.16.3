@@ -99,6 +99,7 @@ static const int MAX_BLOCKTXN_DEPTH = 10;
  *  degree of disordering of blocks on disk (which make reindexing and pruning harder). We'll probably
  *  want to make this a per-peer adaptive value at some point. */
 
+// FIXME.SUGAR // SURE?
 // 120x faster than bitcoin
 // static const unsigned int BLOCK_DOWNLOAD_WINDOW = 1024;
 static const unsigned int BLOCK_DOWNLOAD_WINDOW = 1024 * 120; // (was 1024) // 1024 * 120 = 122880
