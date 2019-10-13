@@ -297,10 +297,10 @@ public:
             "txrate": 0.2221613945257388
             */
 
-            1570999961,   // * UNIX timestamp of last known number of transactions
-            992381,       // * total number of transactions between genesis and that timestamp
-                          //   (the tx=... number in the SetBestChain debug.log lines)
-            0.225962762   // * estimated number of transactions per second after that timestamp
+            1570999961,           // * UNIX timestamp of last known number of transactions
+            992381,               // * total number of transactions between genesis and that timestamp
+                                  //   (the tx=... number in the SetBestChain debug.log lines)
+            0.2221613945257388    // * estimated number of transactions per second after that timestamp
         };
     }
 };
