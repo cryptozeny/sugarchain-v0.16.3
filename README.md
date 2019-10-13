@@ -71,8 +71,6 @@ make -j$(nproc) && ./contrib/devtools/gen-manpages.sh
 
  * (optional) build for Windows and OSX you may need `--disable-shared` option with make.
 
- * (optional) Add nodes from DNSSEED https://github.com/cryptozeny/sugarchain-v0.16.3/tree/master-v0.16.3/contrib/seeds
-
 Unit Test
 ---------
 
