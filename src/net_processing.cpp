@@ -3589,6 +3589,7 @@ bool PeerLogicValidation::SendMessages(CNode* pto, std::atomic<bool>& interruptM
             // FIXME.SUGAR // SURE?
             // 120x faster than bitcoin
             // (consensusParams.nPowTargetSpacing * 120) = 600 seconds = 10 minutes (BTC)
+            // if (nNow > state.nDownloadingSince + consensusParams.nPowTargetSpacing * (BLOCK_DOWNLOAD_TIMEOUT_BASE + BLOCK_DOWNLOAD_TIMEOUT_PER_PEER * nOtherPeersWithValidatedDownloads)) {
             if (nNow > state.nDownloadingSince + (consensusParams.nPowTargetSpacing * 120) * (BLOCK_DOWNLOAD_TIMEOUT_BASE + BLOCK_DOWNLOAD_TIMEOUT_PER_PEER * nOtherPeersWithValidatedDownloads)) {
 
                 // BEGIN: DEBUG - SUGAR - Timeout downloading block
