@@ -134,7 +134,7 @@ public:
 
         consensus.BIP16Height = 0;  // always on
         consensus.BIP34Height = 17;
-        consensus.BIP34Hash = uint256S("");   // TODO.SUGAR
+        consensus.BIP34Hash = uint256S("72e36f3fcdf98d3625dfe03f28a914c513b913231e479d53fc22e5e46cf5b585"); // getblockhash 17
         consensus.BIP65Height = 0;  // always on
         consensus.BIP66Height = 0;  // always on
 
