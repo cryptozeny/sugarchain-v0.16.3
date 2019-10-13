@@ -212,10 +212,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00"); // TODO.SUGAR
+        consensus.nMinimumChainWork = uint256S("0000000000000000000000000000000000000000000000000000020f4aed1203"); // chainwork 876543
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("7d5eaec2dbb75f99feadfa524c78b7cabc1d8c8204f79d4f3a83381b811b0adc"); // genesis
+        consensus.defaultAssumeValid = uint256S("3332eab6dc92487414f636c3d0cfb100d0eca25f3981b8012219a73d49078577"); // hash 876543
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -276,16 +276,31 @@ public:
         checkpointData = {
             {
                 {0, uint256S("7d5eaec2dbb75f99feadfa524c78b7cabc1d8c8204f79d4f3a83381b811b0adc")}, // genesis
+                {1, uint256S("ce8a0df339f2edceb99c5325c95b2b0ae752e29de1193f6113549f0e1cae7c91")},
+                {510, uint256S("f6f565e58812f89d8ea2aca296b9934ea82918f5bd443312af90b0be1465dbd1")},
+                {511, uint256S("ef160a17b4ecc855d00dd6ce051df72f1e690d91811b74c50751ada2e14c5f1a")},
+                {777777, uint256S("2181d325c77562d46bfe3172e2d95e6e2666bdfb469537b8a934e5f3598203d8")},
             }
         };
 
-        // TODO.SUGAR
         chainTxData = ChainTxData{
-            // Data as of block 0000000000000000002d6cca6761c99b3c2e936f9a0e304b7c7651a993f461de (height 506081).
-            0,  // * UNIX timestamp of last known number of transactions
-            0,  // * total number of transactions between genesis and that timestamp
-                //   (the tx=... number in the SetBestChain debug.log lines)
-            0   // * estimated number of transactions per second after that timestamp
+            /*
+            height 878358
+            hash cbc2e56571fb4a1fe8ba81c57579a693ad2ba041a80d9b5e06b90318aedb5d44
+
+            getchaintxstats
+            "time": 1570999961,
+            "txcount": 992381,
+            "window_block_count": 518400,
+            "window_tx_count": 575847,
+            "window_interval": 2592021,
+            "txrate": 0.2221613945257388
+            */
+
+            1570999961,   // * UNIX timestamp of last known number of transactions
+            992381,       // * total number of transactions between genesis and that timestamp
+                          //   (the tx=... number in the SetBestChain debug.log lines)
+            0.225962762   // * estimated number of transactions per second after that timestamp
         };
     }
 };
