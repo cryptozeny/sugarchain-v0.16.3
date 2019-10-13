@@ -500,14 +500,6 @@ void FindNextBlocksToDownload(NodeId nodeid, unsigned int count, std::vector<con
     int nMaxHeight = std::min<int>(state->pindexBestKnownBlock->nHeight, nWindowEnd + 1);
     NodeId waitingfor = -1;
     while (pindexWalk->nHeight < nMaxHeight) {
-        
-        // BEGIN: DEBUG - SUGAR - BLOCK_DOWNLOAD_WINDOW
-        // LogPrintf("DEBUG - BLOCK_DOWNLOAD_WINDOW = %d\n", BLOCK_DOWNLOAD_WINDOW);
-        // LogPrintf("  %d = nWindowEnd\n", nWindowEnd);
-        // LogPrintf("  %d = Diff\n", nWindowEnd - BLOCK_DOWNLOAD_WINDOW);
-        // LogPrintf("  %.3f = Perc\n", ( (float)nWindowEnd - (float)BLOCK_DOWNLOAD_WINDOW ) / (float)BLOCK_DOWNLOAD_WINDOW * 100.0);
-        // END: DEBUG - SUGAR - BLOCK_DOWNLOAD_WINDOW
-        
         // Read up to 128 (or more, if more blocks than that are needed) successors of pindexWalk (towards
         // pindexBestKnownBlock) into vToFetch. We fetch 128, because CBlockIndex::GetAncestor may be as expensive
         // as iterating over ~100 CBlockIndex* entries anyway.
@@ -3558,16 +3550,6 @@ bool PeerLogicValidation::SendMessages(CNode* pto, std::atomic<bool>& interruptM
             // the download window should be much larger than the to-be-downloaded set of blocks, so disconnection
             // should only happen during initial block download.
             LogPrintf("Peer=%d is stalling block download, disconnecting\n", pto->GetId());
-
-            // BEGIN: DEBUG - SUGAR - is stalling block download
-            // LogPrintf("DEBUG - is stalling block download\n");
-            // LogPrintf("  nNow = %d\n", nNow);
-            // LogPrintf("  state.nStallingSince = %d\n", state.nStallingSince);
-            // LogPrintf("    nDiff = %d\n", nNow - state.nStallingSince);
-            // LogPrintf("  BLOCK_STALLING_TIMEOUT = %d\n", BLOCK_STALLING_TIMEOUT);
-            // LogPrintf("  nNow - 1000000 * BLOCK_STALLING_TIMEOUT = %d\n", nNow - 1000000 * BLOCK_STALLING_TIMEOUT);
-            // BEGIN: DEBUG - SUGAR - is stalling block download
-
             pto->fDisconnect = true;
             return true;
         }
