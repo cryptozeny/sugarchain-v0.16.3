@@ -278,11 +278,14 @@ public:
                 {1, uint256S("ce8a0df339f2edceb99c5325c95b2b0ae752e29de1193f6113549f0e1cae7c91")},
                 {510, uint256S("f6f565e58812f89d8ea2aca296b9934ea82918f5bd443312af90b0be1465dbd1")},
                 {511, uint256S("ef160a17b4ecc855d00dd6ce051df72f1e690d91811b74c50751ada2e14c5f1a")},
+                {512, uint256S("094afbe86930e4950c601fde563cd2c7b9d050c1b567ad6fe48ae3b15a705ebb")},
                 {900000, uint256S("8a566a463925cf028cb427edb6d4d18a9c1213bf472d9032369c4e45449eb71c")},
             }
         };
 
         chainTxData = ChainTxData{
+            // 120x faster than bitcoin
+            // 30x faster than LTC
             /*
             getchaintxstats 122880 cbc2e56571fb4a1fe8ba81c57579a693ad2ba041a80d9b5e06b90318aedb5d44
             nblocks 122880 (default: one month(518400), but 4096(LTC)*30 = 122880)
