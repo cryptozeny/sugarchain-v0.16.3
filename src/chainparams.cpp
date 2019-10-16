@@ -284,26 +284,22 @@ public:
         };
 
         chainTxData = ChainTxData{
-            // 120x faster than bitcoin
-            // 30x faster than LTC
             /*
-            getchaintxstats 122880 cbc2e56571fb4a1fe8ba81c57579a693ad2ba041a80d9b5e06b90318aedb5d44
-            nblocks 122880 (default: one month(518400), but 4096(LTC)*30 = 122880)
+            getchaintxstats 4096 cbc2e56571fb4a1fe8ba81c57579a693ad2ba041a80d9b5e06b90318aedb5d44
+            nblocks 4096 (default: one month(518400), but 4096)
             hash cbc2e56571fb4a1fe8ba81c57579a693ad2ba041a80d9b5e06b90318aedb5d44
             height 878358
 
-            getchaintxstats
             "time": 1570999961,
             "txcount": 992381,
-            "window_block_count": 122880,
-            "window_tx_count": 130452,
-            "window_interval": 612368,
-            "txrate": 0.213028767015912
-            */
+            "window_block_count": 4096,
+            "window_tx_count": 4248,
+            "window_interval": 20077,
+            "txrate": 0.2115853962245355
 
             /* nTime    */ 1570999961,
             /* nTxCount */ 992381,
-            /* dTxRate  */ 0.213
+            /* dTxRate  */ 0.2115853962245355
         };
     }
 };
