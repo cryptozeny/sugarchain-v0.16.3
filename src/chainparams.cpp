@@ -284,24 +284,23 @@ public:
 
         chainTxData = ChainTxData{
             /*
-            getchaintxstats 518400 cbc2e56571fb4a1fe8ba81c57579a693ad2ba041a80d9b5e06b90318aedb5d44
-            nblocks 518400 (default: one month)
+            getchaintxstats 122880 cbc2e56571fb4a1fe8ba81c57579a693ad2ba041a80d9b5e06b90318aedb5d44
+            nblocks 122880 (default: one month(518400), but 4096(LTC)*30 = 122880)
             hash cbc2e56571fb4a1fe8ba81c57579a693ad2ba041a80d9b5e06b90318aedb5d44
             height 878358
 
             getchaintxstats
             "time": 1570999961,
             "txcount": 992381,
-            "window_block_count": 518400,
-            "window_tx_count": 575847,
-            "window_interval": 2592021,
-            "txrate": 0.2221613945257388
+            "window_block_count": 122880,
+            "window_tx_count": 130452,
+            "window_interval": 612368,
+            "txrate": 0.213028767015912
             */
 
-            1570999961,           // * UNIX timestamp of last known number of transactions
-            992381,               // * total number of transactions between genesis and that timestamp
-                                  //   (the tx=... number in the SetBestChain debug.log lines)
-            0.2221613945257388    // * estimated number of transactions per second after that timestamp
+            /* nTime    */ 1570999961,
+            /* nTxCount */ 992381,
+            /* dTxRate  */ 0.213
         };
     }
 };
