@@ -284,8 +284,10 @@ public:
 
         chainTxData = ChainTxData{
             /*
-            height 878358
+            getchaintxstats 518400 cbc2e56571fb4a1fe8ba81c57579a693ad2ba041a80d9b5e06b90318aedb5d44
+            nblocks 518400 (default: one month)
             hash cbc2e56571fb4a1fe8ba81c57579a693ad2ba041a80d9b5e06b90318aedb5d44
+            height 878358
 
             getchaintxstats
             "time": 1570999961,
