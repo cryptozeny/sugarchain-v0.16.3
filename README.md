@@ -24,7 +24,7 @@ information or see https://opensource.org/licenses/MIT.
 
 Minimum Requirement
 -------------------
-- CPU: 1
+- CPU: 1 Core
 - RAM: 1024 MB (at least 2048 MB swap)
 - DISK: 3.65 GB
 
