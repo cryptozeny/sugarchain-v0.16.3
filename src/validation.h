@@ -101,7 +101,8 @@ static const int MAX_BLOCKTXN_DEPTH = 10;
 
 // FIXME.SUGAR // SURE?
 // 120x faster than bitcoin
-// but 120x is too much, so just 30x
+// but 120x is too much
+// 30x faster than LTC
 // static const unsigned int BLOCK_DOWNLOAD_WINDOW = 1024;
 static const unsigned int BLOCK_DOWNLOAD_WINDOW = 1024 * 30; // (was 1024)
 
