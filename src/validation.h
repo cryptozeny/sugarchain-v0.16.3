@@ -103,8 +103,8 @@ static const int MAX_BLOCKTXN_DEPTH = 10;
 // 120x faster than bitcoin
 // but 120x is too much
 // 30x faster than LTC
-// static const unsigned int BLOCK_DOWNLOAD_WINDOW = 1024;
-static const unsigned int BLOCK_DOWNLOAD_WINDOW = 1024 * 30; // (was 1024)
+static const unsigned int BLOCK_DOWNLOAD_WINDOW = 1024;
+// static const unsigned int BLOCK_DOWNLOAD_WINDOW = 1024 * 30; // (was 1024)
 
 /** Time to wait (in seconds) between writing blocks/block index to disk. */
 static const unsigned int DATABASE_WRITE_INTERVAL = 60 * 60;
