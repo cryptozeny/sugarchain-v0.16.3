@@ -3170,8 +3170,8 @@
         <translation>HTTPサーバを開始できませんでした。詳細はデバッグログをご確認ください。</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin のコア</translation>
+        <source>Sugarchain Yumekawa</source>
+        <translation>シュガーチェーンユメカワ</translation>
     </message>
     <message>
         <source>The %s developers</source>
