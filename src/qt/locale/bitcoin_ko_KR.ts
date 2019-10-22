@@ -2207,7 +2207,7 @@
     </message>
     <message>
         <source>%1 (%2 blocks)</source>
-        <translation>%1(%2 블록스)</translation>
+        <translation>%1(%2 블록)</translation>
     </message>
     <message>
         <source>%1 to %2</source>
