@@ -2086,7 +2086,7 @@
     </message>
     <message>
         <source>Choose...</source>
-        <translation>선택...</translation>
+        <translation>선택 하기...</translation>
     </message>
     <message>
         <source>Using the fallbackfee can result in sending a transaction that will take several hours or days (or never) to confirm. Consider choosing your fee manually or wait until you have validated the complete chain.</source>
@@ -3771,7 +3771,7 @@
     </message>
     <message>
         <source>Transaction too large</source>
-        <translation>너무 큰 거래 (금액을 줄이세요)</translation>
+        <translation>너무 큰 거래 (금액을 낮춰야 합니다)</translation>
     </message>
     <message>
         <source>Unable to generate initial keys</source>
