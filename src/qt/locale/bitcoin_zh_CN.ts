@@ -3164,8 +3164,8 @@
         <translation>无法启动HTTP服务，查看日志获取更多信息</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Core</translation>
+        <source>Sugarchain Yumekawa</source>
+        <translation>糖链夢川</translation>
     </message>
     <message>
         <source>The %s developers</source>
